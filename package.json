@@ -9,7 +9,8 @@
   "author": "Daniel Ohn",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "prettier": "^2.0.5"
   },
   "dependencies": {
     "stripe": "^8.49.0"
