@@ -1,11 +1,8 @@
-import Stripe from 'stripe';
+const stripe = require("stripe")(process.env.SK_TEST_KEY);
 
-const stripe = new Stripe(process.env.SK_TEST_KEY);
-
-(async () => {
-  const customer = await stripe.customers.create({
-    email: 'customer@example.com',
-  });
-
-  console.log(customer.id);
-})();
+stripe.customers
+  .create({
+    email: "customer@example.com",
+  })
+  .then((customer) => console.log('customer id: ' + customer.id))
+  .catch((err) => console.error(err));
