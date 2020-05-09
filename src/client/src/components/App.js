@@ -15,15 +15,22 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Title of Page!</h1>
-      <p>Nav Bar Goes here</p>
+      <div className="header">
+        <h1>Blossom Arts</h1>
+        <h2>A & Y</h2>
+        <ul className='nav'>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
       <div>
         <h3>Products</h3>
         {products &&
           Object.keys(products).map((i) => {
-           let product = products[i]
+            let product = products[i]
 
-           return <p key={product.id}>{product.name}</p>
+            return <p key={product.id}>{product.name}</p>
           })}
       </div>
     </div>
