@@ -8,7 +8,6 @@ function Home() {
   useEffect(() => {
     axios.get("/products").then((res) => {
       setProdcuts(res.data.data)
-      console.log(res.data.data)
     })
   })
   return (
@@ -20,6 +19,11 @@ function Home() {
 
           return <p key={product.id}>{product.name}</p>
         })}
+      {!products &&
+        <p>
+          No products at this time :(
+        </p>
+      }
     </div>
   )
 }

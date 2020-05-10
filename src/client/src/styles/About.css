@@ -1,10 +1,12 @@
 .post {
   display: flex;
   margin: auto;
+  padding-bottom: 64px;
 }
 
 .post p {
   width: 500px;
+  margin: auto;
 }
 
 
@@ -14,10 +16,10 @@
 
 .right {
   flex-flow: row nowrap;
-  text-align: right;
+  text-align: left;
 }
 
 .left {
   flex-flow: row-reverse nowrap;
-  text-align: left;
+  text-align: right;
 }
