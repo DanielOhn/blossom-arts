@@ -1,38 +1,39 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import "../styles/App.css"
 
-import axios from "axios"
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+
+import Home from "../pages/Home"
+import About from "../pages/About"
+import Contact from "../pages/Contact"
 
 function App() {
-  const [products, setProducts] = useState()
-
-  useEffect(() => {
-    axios.get("/products").then((res) => {
-      setProducts(res.data.data)
-      console.log(res.data.data)
-    })
-  }, [])
-
   return (
     <div className="App">
-      <div className="header">
-        <h1>Blossom Arts</h1>
-        <h2>A & Y</h2>
-        <ul className='nav'>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Products</h3>
-        {products &&
-          Object.keys(products).map((i) => {
-            let product = products[i]
-
-            return <p key={product.id}>{product.name}</p>
-          })}
-      </div>
+      <Router>
+        <div className="header">
+          <h1>Blossom Arts</h1>
+          <h2>A & Y</h2>
+          <ul className="nav">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact"> Contact</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="content">
+          <Switch>
+            <Route path="/" exact render={() => <Home />} />
+            <Route path="/about" extact render={() => <About />} />
+            <Route path="/contact" extact render={() => <Contact />} />
+          </Switch>
+        </div>
+      </Router>
     </div>
   )
 }

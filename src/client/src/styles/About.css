@@ -1,0 +1,23 @@
+.post {
+  display: flex;
+  margin: auto;
+}
+
+.post p {
+  width: 500px;
+}
+
+
+.post img {
+  padding: 8px;
+}
+
+.right {
+  flex-flow: row nowrap;
+  text-align: right;
+}
+
+.left {
+  flex-flow: row-reverse nowrap;
+  text-align: left;
+}

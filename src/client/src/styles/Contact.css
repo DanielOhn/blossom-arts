@@ -1,0 +1,14 @@
+.contact {
+  min-height: 40vh;
+  margin: auto;
+}
+
+.contact form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
+
+.contact input, textarea {
+  margin: 8px;
+}
