@@ -1,4 +1,4 @@
-.sku-cards { 
+.sku-cards {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -6,6 +6,7 @@
 }
 
 .sku-card {
+  z-index: 0;
   vertical-align: center;
   position: relative;
 }
@@ -15,40 +16,54 @@
   max-width: 280px;
 }
 
-.sku-card img:hover {
-  filter: blur(4px);
-}
-
 .overlay {
+  z-index: 1;
   display: flex;
   flex-flow: column nowrap;
+  position: absolute;
+  overflow: hidden;
 
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  bottom: 0;
+  left: 12.5%;
+
+  width: 75%;
+  height: 0;
 
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.8s ease;
+  background-color: white;
 }
 
-.sku-card:hover .overlay { 
+.overlay p {
+  background-color: teal;
+  color: white;
+  padding: 2px;
+  margin: 0;
+}
+
+.sku-card:hover img {
+  filter: blur(2px);
+}
+
+.sku-card:hover .overlay {
   opacity: 1;
+  height: 20%;
+  bottom: 0;
 }
 
 .sku-card {
   color: #555;
-
 }
 
 .sku-info {
-   display: flex;
-   flex-flow: row nowrap;
-   justify-content: space-between;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
 }
 
-
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 768px) {
   .sku-cards {
     display: flex;
     flex-flow: column nowrap;
@@ -58,5 +73,4 @@
   .sku-card img {
     max-height: 200px;
   }
-
-} 
+}
