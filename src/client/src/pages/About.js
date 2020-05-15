@@ -6,27 +6,39 @@ function About() {
     <div className="about">
       <h1>About</h1>
       <div className="right post">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit
-          ullamcorper egestas. Pellentesque sed consequat metus, a dictum nulla.
-          Suspendisse potenti. Ut tristique feugiat dolor at imperdiet.
-        </p>
+        <div className="text">
+          <h4>Pellentesque sed consequat</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            blandit ullamcorper egestas. Pellentesque sed consequat metus, a
+            dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at
+            imperdiet.
+          </p>
+        </div>
         <img alt="cat" src="https://placekitten.com/420/280" />
       </div>
       <div className="left post">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit
-          ullamcorper egestas. Pellentesque sed consequat metus, a dictum nulla.
-          Suspendisse potenti. Ut tristique feugiat dolor at imperdiet.
-        </p>
+        <div className="text">
+          <h4>Pellentesque sed consequat</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            blandit ullamcorper egestas. Pellentesque sed consequat metus, a
+            dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at
+            imperdiet.
+          </p>
+        </div>
         <img alt="cat" src="https://placekitten.com/420/280" />
       </div>
       <div className="right post">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit
-          ullamcorper egestas. Pellentesque sed consequat metus, a dictum nulla.
-          Suspendisse potenti. Ut tristique feugiat dolor at imperdiet.
-        </p>
+        <div className="text">
+          <h4>Pellentesque sed consequat</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+            blandit ullamcorper egestas. Pellentesque sed consequat metus, a
+            dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at
+            imperdiet.
+          </p>
+        </div>
         <img alt="cat" src="https://placekitten.com/420/280" />
       </div>
     </div>

@@ -2,13 +2,13 @@
   display: flex;
   margin: auto;
   padding-bottom: 64px;
+
+  /* box-sizing: border-box; */
 }
 
 .post p {
   width: 500px;
-  margin: auto;
 }
-
 
 .post img {
   padding: 8px;
@@ -22,4 +22,26 @@
 .left {
   flex-flow: row-reverse nowrap;
   text-align: right;
+}
+
+.text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 768px) {
+  .post {
+    display: flex; 
+    flex-flow: column nowrap;
+  }
+
+  .right, .left {
+    text-align: left;
+  }
+
+  .post p {
+    text-align: left;
+    padding: 0;
+  }
 }

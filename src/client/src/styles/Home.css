@@ -1,0 +1,62 @@
+.sku-cards { 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sku-card {
+  vertical-align: center;
+  position: relative;
+}
+
+.sku-card img {
+  max-height: 280px;
+  max-width: 280px;
+}
+
+.sku-card img:hover {
+  filter: blur(4px);
+}
+
+.overlay {
+  display: flex;
+  flex-flow: column nowrap;
+
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+  opacity: 0;
+  transition: 1s ease;
+}
+
+.sku-card:hover .overlay { 
+  opacity: 1;
+}
+
+.sku-card {
+  color: #555;
+
+}
+
+.sku-info {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 768px) { 
+  .sku-cards {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .sku-card img {
+    max-height: 200px;
+  }
+
+} 

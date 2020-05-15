@@ -32,7 +32,7 @@ const stripe = require("stripe")(process.env.SK_TEST_KEY)
 app.get("/", (req, res) => res.send("Hello World!"))
 
 app.get("/products", (req, res) => {
-  stripe.products.list().then((lst) => res.send(lst))
+  stripe.skus.list().then((lst) => res.send(lst))
 })
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
