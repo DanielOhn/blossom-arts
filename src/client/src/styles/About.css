@@ -12,6 +12,8 @@
 
 .post img {
   padding: 8px;
+  width: 500px;
+  min-width: 350px;
 }
 
 .right {
@@ -36,12 +38,17 @@
     flex-flow: column nowrap;
   }
 
+  .post img {
+    align-self: center;
+  }
+
   .right, .left {
-    text-align: left;
+    text-align: center;
   }
 
   .post p {
-    text-align: left;
     padding: 0;
+    text-align: center;
+    margin: auto;
   }
 }
