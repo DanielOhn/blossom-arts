@@ -9,6 +9,7 @@
   z-index: 0;
   vertical-align: center;
   position: relative;
+  padding: 16px;
 }
 
 .sku-card img {
@@ -72,6 +73,6 @@
   }
 
   .sku-card img {
-    max-height: 200px;
+    max-height: 225px;
   }
 }

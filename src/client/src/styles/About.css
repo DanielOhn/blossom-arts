@@ -1,19 +1,19 @@
 .post {
   display: flex;
   margin: auto;
-  padding-bottom: 64px;
+  padding-bottom: 32px;
 
   /* box-sizing: border-box; */
 }
 
 .post p {
-  width: 500px;
+  width: 400px;
 }
 
 .post img {
-  padding: 8px;
-  width: 500px;
-  min-width: 350px;
+  padding: 4px;
+  max-width: 100%;
+  height: auto;
 }
 
 .right {
@@ -40,6 +40,7 @@
 
   .post img {
     align-self: center;
+    max-width: 350px;
   }
 
   .right, .left {

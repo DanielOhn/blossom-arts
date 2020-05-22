@@ -3,8 +3,7 @@
 }
 
 .content {
-  max-width: 900px;
-
+  max-width: 760px;
   margin: auto;
 }
 
@@ -28,6 +27,11 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .content {
+    max-width: 85%;
+    margin: auto;
+  }
+
   .nav {
     display: flex;
     flex-flow: column nowrap;
