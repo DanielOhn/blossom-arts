@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "../styles/Home.css"
 
 import axios from "axios"
+import Cart from '../icons/cart'
 
 function Home() {
   const [products, setProdcuts] = useState()
@@ -21,16 +22,16 @@ function Home() {
             let price = product.price / 100
 
             return (
-              <div className="sku-card">
+              <div className="sku-card" key={product.id}>
                 <img alt={product.attributes.name} src={product.image} />
 
                 <div className="overlay">
-                  <p className="name" key={product.id}>
+                  <p className="name">
                     {product.attributes.name}
                   </p>
                   <div className="sku-info">
                     <small>${price}</small>
-                    <button></button>
+                    <Cart />
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
-.menu {
+.cart-icon {
   border: none;
   background-color: transparent;
-  margin-left: -36px;
+  width: 38px;
+  fill: #555;
 }

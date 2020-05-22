@@ -15,7 +15,7 @@
 .sku-card img {
   max-height: 280px;
   max-width: 280px;
-  padding: 4px;
+  padding: 8px;
 }
 
 .overlay {
@@ -43,6 +43,8 @@
   color: white;
   padding: 2px;
   margin: 0;
+  font-size: 18px;
+  font-weight: 750;
 }
 
 .sku-card:hover img {
@@ -57,6 +59,11 @@
 
 .sku-card {
   color: #555;
+  font-size: 20px;
+}
+
+.sku-card small {
+  font-weight: 400;
 }
 
 .sku-info {
