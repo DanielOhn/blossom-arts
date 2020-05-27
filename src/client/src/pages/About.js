@@ -7,6 +7,7 @@ function About() {
       <h1>About</h1>
       <div className="right post">
         <div className="text">
+          <span />
           <h4>Pellentesque sed consequat</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
@@ -19,6 +20,7 @@ function About() {
       </div>
       <div className="left post">
         <div className="text">
+          <span />
           <h4>Pellentesque sed consequat</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
@@ -31,7 +33,7 @@ function About() {
       </div>
       <div className="right post">
         <div className="text">
-          <h4>Pellentesque sed consequat</h4>
+          <span /> <h4>Pellentesque sed consequat</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
             blandit ullamcorper egestas. Pellentesque sed consequat metus, a

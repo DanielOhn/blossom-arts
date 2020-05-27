@@ -3,11 +3,14 @@
   margin: auto;
   padding-bottom: 32px;
 
+  color: #000;
+
   /* box-sizing: border-box; */
 }
 
 .post p {
   width: 400px;
+  color: gray;
 }
 
 .post img {
@@ -18,24 +21,44 @@
 
 .right {
   flex-flow: row nowrap;
-  text-align: left;
 }
 
 .left {
   flex-flow: row-reverse nowrap;
-  text-align: right;
 }
 
 .text {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.text h4 {
+  font-family: "Cinzel";
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.text span {
+  height: 25%;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 @media only screen and (max-width: 768px) {
+  .text h4 {
+    padding-bottom: 12px;
+  }
+
+  .text p {
+    margin: auto;
+    padding-bottom: 16px;
+  }
+
+
   .post {
-    display: flex; 
-    flex-flow: column nowrap;
+    display: flex;
+    flex-flow: column wrap;
   }
 
   .post img {
@@ -43,13 +66,4 @@
     max-width: 350px;
   }
 
-  .right, .left {
-    text-align: center;
-  }
-
-  .post p {
-    padding: 0;
-    text-align: center;
-    margin: auto;
-  }
 }

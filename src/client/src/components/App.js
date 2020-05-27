@@ -31,6 +31,7 @@ function App() {
             <Route path="/" exact render={() => <Home />} />
             <Route path="/about" extact render={() => <About />} />
             <Route path="/contact" extact render={() => <Contact />} />
+            {/* <Route path="/product/:slug" extact render={() => <Product />} /> */}
           </Switch>
         </div>
       </Router>
@@ -41,10 +42,10 @@ function App() {
 export default App
 
 //TODO
-// List Products
+// List Products DONE 
 // Create Product
 // Edit Product
 // Delete Product
-// View Product
+// View Product DO THIS 
 
 // CRUD for Customers
