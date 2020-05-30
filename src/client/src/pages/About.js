@@ -5,6 +5,7 @@ function About() {
   return (
     <div className="about">
       <h1>About</h1>
+      <div className="posts"> 
       <div className="right post">
         <div className="text">
           <span />
@@ -42,6 +43,7 @@ function About() {
           </p>
         </div>
         <img alt="cat" src="https://placekitten.com/420/280" />
+      </div>
       </div>
     </div>
   )

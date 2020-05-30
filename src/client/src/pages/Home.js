@@ -3,6 +3,7 @@ import "../styles/Home.css"
 
 import axios from "axios"
 import Cart from '../icons/cart'
+import Header from "../components/Header"
 
 function Home() {
   const [products, setProdcuts] = useState()
@@ -14,7 +15,11 @@ function Home() {
   })
   return (
     <div className="home">
-      <h3>Products</h3>
+      <Header 
+        title="Products"
+        subtitle="Enjoy Our"
+        bg="https://placekitten.com/1000/1000"
+      />
       <div className="sku-cards">
         {products &&
           Object.keys(products).map((i) => {

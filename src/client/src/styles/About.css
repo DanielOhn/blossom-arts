@@ -1,3 +1,8 @@
+.posts {
+  max-width: 760px;
+  margin: auto;
+}
+
 .post {
   display: flex;
   margin: auto;
