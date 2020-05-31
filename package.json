@@ -10,7 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "prettier": "^2.0.5"
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
   },
   "dependencies": {
     "express": "^4.17.1",
