@@ -17,3 +17,37 @@
 textarea {
   margin: 8px;
 }
+
+input[type="text"],
+textarea {
+  padding: 6px 8px;
+  box-sizing: border-box;
+
+  border: 1px solid #adb6c4;
+  border-radius: 6px;
+}
+
+input[type="text"]:hover,
+textarea:hover,
+input[type="text"]:focus,
+textarea:focus {
+  border: 1px solid #994636;
+}
+
+input[type="submit"] {
+  color: #ffc49b;
+
+  background-color: #994636;
+  border: none;
+
+  padding: 12px;
+
+  min-width: 32px;
+  align-self: center;
+}
+
+input[type="submit"]:hover {
+  background-color: #ffc49b;
+
+  color: #994636;
+}

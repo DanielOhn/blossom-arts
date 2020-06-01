@@ -15,9 +15,11 @@ function Contact() {
         <input placeholder="name" type="text" />
         <input placeholder="email" type="text" />
         <textarea
+          type="text"
           placeholder="We would love your feedback!"
-          cols="20"
         ></textarea>
+
+        <input type="submit" value="Submit" />
       </form>
     </div>
   )
