@@ -8,7 +8,7 @@ function About() {
     <div className="about">
       <Header
         title="About Us"
-        subtitle="Welcome! Come Learn"
+        subtitle="Welcome"
         bg="https://placekitten.com/1000/1000"
       />
       <div className="posts">
