@@ -1,8 +1,10 @@
 .contact {
   min-height: 40vh;
-  margin: auto;
-  max-width: 760px;
+}
 
+.contact-form {
+  max-width: 760px;
+  margin: auto;
 }
 
 .contact form {
@@ -11,6 +13,7 @@
   justify-content: space-evenly;
 }
 
-.contact input, textarea {
+.contact input,
+textarea {
   margin: 8px;
 }

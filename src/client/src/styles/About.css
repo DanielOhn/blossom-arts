@@ -9,8 +9,6 @@
   padding-bottom: 32px;
 
   color: #000;
-
-  /* box-sizing: border-box; */
 }
 
 .post p {
@@ -60,7 +58,6 @@
     padding-bottom: 16px;
   }
 
-
   .post {
     display: flex;
     flex-flow: column wrap;
@@ -70,5 +67,4 @@
     align-self: center;
     max-width: 350px;
   }
-
 }

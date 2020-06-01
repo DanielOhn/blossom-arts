@@ -1,13 +1,23 @@
 import React from "react"
 import "../styles/Contact.css"
 
+import Header from "../components/Header"
+
 function Contact() {
   return (
     <div className="contact">
-      <form>
+      <Header
+        title="Products"
+        subtitle="Enjoy Our"
+        bg="https://placekitten.com/1000/1000"
+      />
+      <form className="contact-form">
         <input placeholder="name" type="text" />
         <input placeholder="email" type="text" />
-        <textarea placeholder="We would love your feedback!" cols="20"></textarea>
+        <textarea
+          placeholder="We would love your feedback!"
+          cols="20"
+        ></textarea>
       </form>
     </div>
   )
