@@ -3,6 +3,8 @@ import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 
+import Flower from "../icons/flower"
+
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
@@ -14,6 +16,7 @@ function App() {
         <div className="navbar">
           <h1>Blossom Arts</h1>
           <h2>A & Y</h2>
+          <Flower />
           <ul className="nav">
             <li>
               <Link to="/">Home</Link>
@@ -42,10 +45,10 @@ function App() {
 export default App
 
 //TODO
-// List Products DONE 
+// List Products DONE
 // Create Product
 // Edit Product
 // Delete Product
-// View Product DO THIS 
+// View Product DO THIS
 
 // CRUD for Customers

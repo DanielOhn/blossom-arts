@@ -7,8 +7,8 @@ function Contact() {
   return (
     <div className="contact">
       <Header
-        title="Products"
-        subtitle="Enjoy Our"
+        title="Feedback"
+        subtitle="We Love Your"
         bg="https://placekitten.com/1000/1000"
       />
       <form className="contact-form">

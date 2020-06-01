@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles/cart.css"
+import "../styles/icons/cart.css"
 
 const Cart = (props) => {
   return (
