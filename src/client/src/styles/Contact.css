@@ -20,6 +20,8 @@ textarea {
 
 input[type="text"],
 textarea {
+  color: #994636;
+
   padding: 6px 8px;
   box-sizing: border-box;
 
