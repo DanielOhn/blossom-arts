@@ -7,6 +7,19 @@
   margin: auto;
 }
 
+.logo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+
+  align-items: center;
+  padding-top: 24px;
+}
+
+.logo img {
+  padding-bottom: 16px;
+}
+
 .nav {
   list-style: none;
   margin: auto;

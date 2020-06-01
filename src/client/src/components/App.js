@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 
 import Flower from "../icons/flower"
 
+import black_logo from "../icons/logos/ba_logo_black.png"
+
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
@@ -13,10 +15,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="navbar">
-          <h1>Blossom Arts</h1>
-          <h2>A & Y</h2>
+        <div className="logo">
+          <img src={black_logo} />
           <Flower />
+        </div>
+        <div className="navbar">
           <ul className="nav">
             <li>
               <Link to="/">Home</Link>
