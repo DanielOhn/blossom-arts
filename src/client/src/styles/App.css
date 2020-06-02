@@ -61,7 +61,6 @@ subheader - #FFC49B
 
 @media only screen and (max-width: 768px) {
   .content {
-    max-width: 85%;
     margin: auto;
   }
 
