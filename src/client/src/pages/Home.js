@@ -19,6 +19,18 @@ function Home() {
     })
   }, [])
 
+  function slugify(str) {
+    str = str.replace(/^\s+|\s+$/g, "")
+    str = str.toLowerCase()
+
+    str = str
+      .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+      .replace(/\s+/g, "-") // collapse whitespace and replace by -
+      .replace(/-+/g, "-") // collapse dashes
+
+    return str
+  }
+
   // function handleClick(prod) {
   //   console.log(prod)
   //   setProduct(prod)
@@ -57,7 +69,7 @@ function Home() {
 
             return (
               <div className="sku-card" key={product.id}>
-                <Link to={`/product/${name}`}>
+                <Link to={`/product/${slugify(name)}`}>
                   <img alt={name} src={product.image} />
                 </Link>
                 <div className="overlay">
