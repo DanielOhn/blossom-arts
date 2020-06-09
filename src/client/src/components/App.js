@@ -10,6 +10,7 @@ import black_logo from "../icons/logos/ba_logo_black.png"
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
+import Product from "../components/Product"
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
             <Route path="/" exact render={() => <Home />} />
             <Route path="/about" extact render={() => <About />} />
             <Route path="/contact" extact render={() => <Contact />} />
-            {/* <Route path="/product/:slug" extact render={() => <Product />} /> */}
+            <Route path="/product/:name" extact render={() => <Product />} />
+            <Route path="/404" exact render={() => <p>Page not found.</p>} />
           </Switch>
         </div>
       </Router>
