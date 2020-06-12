@@ -6,11 +6,11 @@ import Cart from "../icons/cart"
 import Header from "../components/Header"
 import Product from "../components/Product"
 
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter as Link } from "react-router-dom"
 
 // import StripeCheckout from "react-stripe-checkout"
 
-function Home() {
+function Home({ match }) {
   const [products, setProducts] = useState()
 
   useEffect(() => {
@@ -31,27 +31,6 @@ function Home() {
     return str
   }
 
-  // function handleClick(prod) {
-  //   console.log(prod)
-  //   setProduct(prod)
-  // }
-
-  // async function handleToken(token) {
-  //   console.log(token)
-
-  //   const response = await axios.post("/checkout", {
-  //     token,
-  //     product,
-  //   })
-  //   const { status } = response.data
-
-  //   if (status === "success") alert("Success!  Check email for details.")
-  //   else
-  //     alert(
-  //       "An issue has occurred!  Please try again later or contact support."
-  //     )
-  // }
-
   return (
     <div className="home">
       <Header
@@ -69,7 +48,14 @@ function Home() {
 
             return (
               <div className="sku-card" key={product.id}>
-                <Link to={`/product/${slugify(name)}`}>
+                <Link
+                  to={{
+                    pathname: `/${match.url}/${slugify(name)}`,
+                    state: {
+                      product: product,
+                    },
+                  }}
+                >
                   <img alt={name} src={product.image} />
                 </Link>
                 <div className="overlay">

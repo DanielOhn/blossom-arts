@@ -2,17 +2,30 @@ import React from "react"
 import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import axios from "axios"
 
 import Flower from "../icons/flower"
-
 import black_logo from "../icons/logos/ba_logo_black.png"
 
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
-import Product from "../components/Product"
+// import Product from "../components/Product"
+import Products from "../pages/Products"
 
-function App() {
+function App({ match }) {
+  function slugify(str) {
+    str = str.replace(/^\s+|\s+$/g, "")
+    str = str.toLowerCase()
+
+    str = str
+      .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+      .replace(/\s+/g, "-") // collapse whitespace and replace by -
+      .replace(/-+/g, "-") // collapse dashes
+
+    return str
+  }
+
   return (
     <div className="App">
       <Router>
@@ -29,16 +42,18 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/contact"> Contact</Link>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
             </li>
           </ul>
         </div>
         <div className="content">
           <Switch>
-            <Route path="/" exact render={() => <Home />} />
             <Route path="/about" extact render={() => <About />} />
             <Route path="/contact" extact render={() => <Contact />} />
-            <Route path="/product/:name" extact render={() => <Product />} />
+            <Route path="/products" component={Products} />
             <Route path="/404" exact render={() => <p>Page not found.</p>} />
           </Switch>
         </div>
@@ -49,11 +64,8 @@ function App() {
 
 export default App
 
-//TODO
-// List Products DONE
-// Create Product
-// Edit Product
-// Delete Product
-// View Product DO THIS
-
-// CRUD for Customers
+/* <Route
+  path="/product/:name"
+  extact
+  render={(props) => <Product data={product} {...props} />}
+/> */
