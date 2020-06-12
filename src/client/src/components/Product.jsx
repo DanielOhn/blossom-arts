@@ -1,6 +1,10 @@
 import React from "react"
-
 import axios from "axios"
+
+// Idea
+// 1 - Get Products from Stripe
+// 2 - Include Metadata for Slugs
+// 3 - Compare name from frontend to backend to retreive Product
 
 const Product = ({ match }) => {
   return (
@@ -13,6 +17,7 @@ const Product = ({ match }) => {
 export default Product
 
 /* <StripeCheckout
+<StripeCheckout
   stripeKey={process.env.REACT_APP_PUBLISH_KEY}
   token={handleToken}
   name={prod.attributes.name}

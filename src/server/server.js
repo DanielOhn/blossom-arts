@@ -10,7 +10,7 @@ const stripe = require("stripe")(process.env.SK_TEST_KEY)
 app.get("/", (req, res) => res.send("Hello World!"))
 
 app.get("/products", (req, res) => {
-  stripe.skus.list().then((lst) => res.send(lst))
+  stripe.products.list({ active: true }).then((lst) => res.send(lst))
 })
 
 app.get("/product", (req, res) => {

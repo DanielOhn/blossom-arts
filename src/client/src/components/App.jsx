@@ -10,7 +10,7 @@ import black_logo from "../icons/logos/ba_logo_black.png"
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
-// import Product from "../components/Product"
+import Product from "../components/Product"
 import Products from "../pages/Products"
 
 function App({ match }) {
@@ -51,9 +51,10 @@ function App({ match }) {
         </div>
         <div className="content">
           <Switch>
-            <Route path="/about" extact render={() => <About />} />
-            <Route path="/contact" extact render={() => <Contact />} />
-            <Route path="/products" component={Products} />
+            <Route path="/about" exact render={() => <About />} />
+            <Route path="/contact" exact render={() => <Contact />} />
+            <Route path="/products" exact component={Products} />
+            <Route path="/products/:name" exact render={() => <Product />} />
             <Route path="/404" exact render={() => <p>Page not found.</p>} />
           </Switch>
         </div>
