@@ -3,25 +3,24 @@ import { Link, Route } from "react-router-dom"
 
 import axios from "axios"
 
-import Product from "../components/Product"
-import Slugify from "../components/Slugify"
-
 const Products = ({ match }) => {
   const [products, setProducts] = useState({})
 
   useEffect(() => {
     axios.get("/products").then((res) => {
       setProducts(res.data.data)
+      console.log(res.data.data)
     })
   }, [])
 
   const listProducts = Object.keys(products).map((i) => {
     let product = products[i]
     let name = product.name
+    let slug = product.metadata.slug
 
     return (
       <li key={product.id}>
-        <Link to={`${match.url}/${name}`}>{name}</Link>
+        <Link to={`${match.url}/${slug}`}>{name}</Link>
       </li>
     )
   })

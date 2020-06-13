@@ -14,18 +14,6 @@ import Product from "../components/Product"
 import Products from "../pages/Products"
 
 function App({ match }) {
-  function slugify(str) {
-    str = str.replace(/^\s+|\s+$/g, "")
-    str = str.toLowerCase()
-
-    str = str
-      .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
-      .replace(/\s+/g, "-") // collapse whitespace and replace by -
-      .replace(/-+/g, "-") // collapse dashes
-
-    return str
-  }
-
   return (
     <div className="App">
       <Router>
@@ -54,7 +42,11 @@ function App({ match }) {
             <Route path="/about" exact render={() => <About />} />
             <Route path="/contact" exact render={() => <Contact />} />
             <Route path="/products" exact component={Products} />
-            <Route path="/products/:name" exact render={() => <Product />} />
+            <Route
+              path="/products/:name"
+              exact
+              render={(props) => <Product {...props} />}
+            />
             <Route path="/404" exact render={() => <p>Page not found.</p>} />
           </Switch>
         </div>

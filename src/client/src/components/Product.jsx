@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 // Idea
@@ -7,6 +7,14 @@ import axios from "axios"
 // 3 - Compare name from frontend to backend to retreive Product
 
 const Product = ({ match }) => {
+  console.log(match.params)
+
+  useEffect(() => {
+    axios.get("/product").then((res) => {
+      console.log(res.data.data)
+    })
+  })
+
   return (
     <div>
       <p>Hello</p>
