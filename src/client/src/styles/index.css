@@ -1,10 +1,49 @@
+:root {
+  --color-mode: "light";
+
+  --bg-lite: #ffefd3;
+  --prime: #ca907e;
+  --second: #994636;
+  --lite: #ffc49b;
+  --link-lite: #adb6c4;
+
+  --bg-dark: #213409;
+  --prime-dark: #eef8e3;
+  --second-dark: #b0dc7a;
+  --lite-dark: #496d1d;
+  --link-dark: #7fbd32;
+}
+
+/* [data-user-color-scheme="light"] {
+  --bg: var(--bg-lite);
+  --primary: var(--prime);
+  --secondary: var(--second);
+  --light: var(--lite);
+  --link: var(--link-lite);
+} */
+
+/* [data-user-color-scheme="dark"] {
+  --bg: var(--bg-dark);
+  --primary: var(--prime-dark);
+  --secondary: var(--second-dark);
+  --light: var(--lite-dark);
+  --link: var(--link-dark);
+} */
+
 body {
   margin: 0;
+  background-color: var(--bg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Cinzel",
     "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --bg: var(--bg-lite);
+  --primary: var(--prime);
+  --secondary: var(--second);
+  --light: var(--lite);
+  --link: var(--link-lite);
 }
 
 code {

@@ -1,5 +1,6 @@
 import React from "react"
 import "../styles/About.css"
+import "../styles/Fonts.css"
 
 import Header from "../components/Header"
 
@@ -15,8 +16,8 @@ function About() {
         <div className="right post">
           <div className="text">
             <span />
-            <h4>Pellentesque sed consequat</h4>
-            <p>
+            <h4 className="primary">Pellentesque sed consequat</h4>
+            <p className="secondary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               blandit ullamcorper egestas. Pellentesque sed consequat metus, a
               dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at
@@ -28,8 +29,8 @@ function About() {
         <div className="left post">
           <div className="text">
             <span />
-            <h4>Pellentesque sed consequat</h4>
-            <p>
+            <h4 className="primary">Pellentesque sed consequat</h4>
+            <p className="secondary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               blandit ullamcorper egestas. Pellentesque sed consequat metus, a
               dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at
@@ -40,8 +41,8 @@ function About() {
         </div>
         <div className="right post">
           <div className="text">
-            <span /> <h4>Pellentesque sed consequat</h4>
-            <p>
+            <span /> <h4 className="primary">Pellentesque sed consequat</h4>
+            <p className="secondary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               blandit ullamcorper egestas. Pellentesque sed consequat metus, a
               dictum nulla. Suspendisse potenti. Ut tristique feugiat dolor at

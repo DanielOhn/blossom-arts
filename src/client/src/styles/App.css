@@ -1,20 +1,7 @@
 .App {
   text-align: center;
-  background-color: #ffefd3;
-  color: #ca907e;
   min-height: 100vh;
 }
-
-/* 
-Light Mode
-
-bg - #FFEFD3
-link - #ADB6C4
-text - #CA907E
-
-header - #994636
-subheader - #FFC49B
-*/
 
 .content {
   width: 100%;
@@ -51,12 +38,7 @@ subheader - #FFC49B
 }
 
 .nav a {
-  color: #adb6c4;
   text-decoration: none;
-}
-
-.nav a:hover {
-  color: #ffc49b;
 }
 
 @media only screen and (max-width: 768px) {

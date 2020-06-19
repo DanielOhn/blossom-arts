@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
+import "../styles/Fonts.css"
+
 // Idea
 // 1 - Get Products from Stripe
 // 2 - Include Metadata for Slugs
@@ -21,8 +23,8 @@ const Product = ({ match }) => {
     <div>
       {product && (
         <>
-          <h1>{product.name}</h1>
-          <p>{product.description}</p>
+          <h1 className="secondary">{product.name}</h1>
+          <p className="primary">{product.description}</p>
         </>
       )}
     </div>

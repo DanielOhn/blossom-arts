@@ -1,0 +1,48 @@
+.heading {
+  text-decoration: underline;
+}
+
+/* Header Sizes */
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+/* Font Weight */
+.heavy {
+  font-weight: 700;
+  /* font-family: ; */
+}
+
+.normal {
+  font-weight: 400;
+  /* font-family: ; */
+}
+
+/* Font Colors */
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.light {
+  color: var(--light);
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--primary);
+}

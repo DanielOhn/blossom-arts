@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 import axios from "axios"
 
+import "../styles/Fonts.css"
+
 const Products = ({ match }) => {
   const [products, setProducts] = useState({})
 

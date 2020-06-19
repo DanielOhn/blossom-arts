@@ -7,13 +7,10 @@
   display: flex;
   margin: auto;
   padding-bottom: 32px;
-
-  color: #994636;
 }
 
 .post p {
   width: 400px;
-  color: #ca907e;
 }
 
 .post img {
