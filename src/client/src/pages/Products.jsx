@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link, Route } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import axios from "axios"
 
@@ -9,18 +9,18 @@ const Products = ({ match }) => {
   useEffect(() => {
     axios.get("/products").then((res) => {
       setProducts(res.data.data)
-      console.log(res.data.data)
+      // console.log(res.data.data)
     })
   }, [])
 
   const listProducts = Object.keys(products).map((i) => {
     let product = products[i]
     let name = product.name
-    let slug = product.metadata.slug
+    // let slug = product.metadata.slug
 
     return (
       <li key={product.id}>
-        <Link to={`${match.url}/${slug}`}>{name}</Link>
+        <Link to={`${match.url}/${product.id}`}>{name}</Link>
       </li>
     )
   })

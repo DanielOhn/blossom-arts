@@ -4,19 +4,15 @@ const port = 3001
 
 const stripe = require("stripe")(process.env.SK_TEST_KEY)
 
-// List
-// const products = stripe.products.list().then((lst) => console.log(lst))
-
 app.get("/", (req, res) => res.send("Hello World!"))
 
 app.get("/products", (req, res) => {
   stripe.products.list({ active: true }).then((lst) => res.send(lst))
 })
 
-app.get("/product", (req, res) => {
-  stripe.sku.retrieve(id, (err, sku) => {
-    console.log(sku)
-    res.send(sku)
+app.get("/products/:id", (req, res) => {
+  stripe.products.retrieve(req.params.id, (err, product) => {
+    res.json(product)
   })
 })
 

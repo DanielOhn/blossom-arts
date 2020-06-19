@@ -7,17 +7,24 @@ import axios from "axios"
 // 3 - Compare name from frontend to backend to retreive Product
 
 const Product = ({ match }) => {
-  console.log(match.params)
+  const [product, setProduct] = useState()
 
   useEffect(() => {
-    axios.get("/product").then((res) => {
-      console.log(res.data.data)
+    axios.get(`/products/${match.params.id}`).then((res) => {
+      console.log(res.data)
+
+      setProduct(res.data)
     })
-  })
+  }, [])
 
   return (
     <div>
-      <p>Hello</p>
+      {product && (
+        <>
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+        </>
+      )}
     </div>
   )
 }

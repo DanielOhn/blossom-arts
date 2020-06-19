@@ -2,18 +2,17 @@ import React from "react"
 import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
-import axios from "axios"
 
 import Flower from "../icons/flower"
 import black_logo from "../icons/logos/ba_logo_black.png"
 
-import Home from "../pages/Home"
+// import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Product from "../components/Product"
 import Products from "../pages/Products"
 
-function App({ match }) {
+function App() {
   return (
     <div className="App">
       <Router>
@@ -43,7 +42,7 @@ function App({ match }) {
             <Route path="/contact" exact render={() => <Contact />} />
             <Route path="/products" exact component={Products} />
             <Route
-              path="/products/:name"
+              path="/products/:id"
               exact
               render={(props) => <Product {...props} />}
             />
