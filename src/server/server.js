@@ -12,7 +12,17 @@ app.get("/products", (req, res) => {
 
 app.get("/products/:id", (req, res) => {
   stripe.products.retrieve(req.params.id, (err, product) => {
-    res.json(product)
+    // res.json(product)
+
+    let final_product = []
+    final_product.push(product)
+
+    stripe.prices.retrieve(product.metadata.price, (e, price) => {
+      final_product.push(price)
+
+      console.log(final_product)
+      res.json(final_product)
+    })
   })
 })
 
@@ -33,7 +43,7 @@ app.post("/checkout", async (req, res) => {
     const idempotency_key = uuid()
     const charge = await stripe.charges.create(
       {
-        amount: product.price,
+        amount: price.unit_amount,
         currency: "usd",
         customer: customer.id,
         receipt_email: token.email,
