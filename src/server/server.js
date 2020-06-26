@@ -12,65 +12,42 @@ app.get("/products", (req, res) => {
 
 app.get("/products/:id", (req, res) => {
   stripe.products.retrieve(req.params.id, (err, product) => {
-    // res.json(product)
-
     let final_product = []
     final_product.push(product)
 
     stripe.prices.retrieve(product.metadata.price, (e, price) => {
       final_product.push(price)
 
-      console.log(final_product)
       res.json(final_product)
     })
   })
 })
 
-app.post("/checkout", async (req, res) => {
-  console.log("Request:", req.body)
+// app.get("/checkout", async (req, res) => {
+//   const intent = await stripe.paymentIntents.create({
+//     amount: 1099,
+//     currency: "usd",
+//     // Verify your integration in this guide by including this parameter
+//     metadata: { integration_check: "accept_a_payment" },
+//   })
 
-  let error
-  let status
+//   console.log(intent)
+//   res.render("checkout", { client_secret: intent.client_secret })
+// })
 
-  try {
-    const { product, token } = req.body
+const calculateOrderAmount = (items) => {
+  return 1400
+}
 
-    const customer = await stripe.customers.create({
-      email: token.email,
-      source: token.id,
-    })
+app.get("/create-payment-intent", async (req, res) => {
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1000,
+    currency: "usd",
+  })
 
-    const idempotency_key = uuid()
-    const charge = await stripe.charges.create(
-      {
-        amount: price.unit_amount,
-        currency: "usd",
-        customer: customer.id,
-        receipt_email: token.email,
-        description: `Purchased the ${product.name}`,
-        shipping: {
-          name: token.card.name,
-          address: {
-            line1: token.card.address_line1,
-            line2: token.card.address_line2,
-            city: token.card.address_city,
-            country: token.card.address_country,
-            postal_code: token.card.address_zip,
-          },
-        },
-      },
-      {
-        idempotency_key,
-      }
-    )
-    console.log("Charge: ", { charge })
-    status = "success"
-  } catch (err) {
-    console.error("Error: ", err)
-    status = "failure"
-  }
-
-  res.json({ error, status })
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  })
 })
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
