@@ -1,88 +1,40 @@
-.sku-cards {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+.cover {
+  background-image: url("../images/flower-art.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  background-attachment: fixed;
+  /* filter: brightness(50%); */
 
-  max-width: 760px;
-  margin: auto;
-}
-
-.sku-card {
-  z-index: 0;
-  vertical-align: center;
-  position: relative;
-  padding: 16px;
-}
-
-.sku-card img {
-  max-height: 280px;
-  max-width: 280px;
-  padding: 8px;
-}
-
-.overlay {
-  z-index: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  position: absolute;
+  height: 600px;
   overflow: hidden;
+  margin: 0 auto;
 
-  padding: 0;
-  margin: 0;
-  bottom: 0;
-  left: 12.5%;
-
-  width: 75%;
-  height: 0;
-
-  opacity: 0;
-  transition: 0.8s ease;
-  background-color: white;
-}
-
-.overlay p {
-  background-color: teal;
   color: white;
-  padding: 2px;
-  margin: 0;
-  font-size: 18px;
-  font-weight: 750;
 }
 
-.sku-card:hover img {
-  filter: blur(2px);
+.title {
+  display: block;
+  width: 300px;
+  margin-left: 55%;
+  margin-top: 240px;
 }
 
-.sku-card:hover .overlay {
-  opacity: 1;
-  height: 20%;
-  bottom: 0;
+.title h1 {
+  font-size: 48px;
+  color: white;
+  background: #222111;
+  mix-blend-mode: multiply;
 }
 
-.sku-card {
-  color: #555;
-  font-size: 20px;
+.text {
+  display: block;
+  width: 600px;
 }
 
-.sku-card small {
-  font-weight: 400;
-}
-
-.sku-info {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-}
-
-@media only screen and (max-width: 768px) {
-  .sku-cards {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-
-  .sku-card img {
-    max-height: 225px;
-  }
+.text p {
+  font-size: 24px;
+  color: white;
+  background: #222111;
+  mix-blend-mode: multiply;
 }

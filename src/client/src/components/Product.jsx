@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 import "../styles/Fonts.css"
+import "../styles/Product.css"
 import CheckoutForm from "./CheckoutForm"
 
 import { loadStripe } from "@stripe/stripe-js"
@@ -49,7 +50,7 @@ const Product = ({ match }) => {
   // }
 
   return (
-    <div>
+    <div className="product">
       {product && price && (
         <>
           <h1 className="secondary">{product.name}</h1>

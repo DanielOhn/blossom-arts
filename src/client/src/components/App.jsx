@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import Flower from "../icons/flower"
 import black_logo from "../icons/logos/ba_logo_black.png"
 
-// import Home from "../pages/Home"
+import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Product from "../components/Product"
@@ -18,7 +18,7 @@ function App() {
       <Router>
         <div className="logo">
           <img src={black_logo} />
-          <Flower />
+          {/* <Flower /> */}
         </div>
         <div className="navbar">
           <ul className="nav">
@@ -38,6 +38,7 @@ function App() {
         </div>
         <div className="content">
           <Switch>
+            <Route path="/" exact render={() => <Home />} />
             <Route path="/about" exact render={() => <About />} />
             <Route path="/contact" exact render={() => <Contact />} />
             <Route path="/products" exact component={Products} />

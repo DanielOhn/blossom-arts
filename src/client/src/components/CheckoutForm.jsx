@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
 // import { loadStripe } from "@stripe/stripe-js"
 
+import "../styles/CheckoutForm.css"
+
 const BillingDetailsFields = () => {
   return (
-    <>
+    <div className="FormGroup">
       <input
         name="name"
         label="Name"
@@ -41,13 +43,14 @@ const BillingDetailsFields = () => {
         required
       />
       <input name="zip" label="ZIP" type="text" placeholder="94103" required />
-    </>
+    </div>
   )
 }
 
 const cardStyle = {
   style: {
     base: {
+      display: "flex",
       color: "#32325d",
       fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
       fontSmoothing: "antialiased",
