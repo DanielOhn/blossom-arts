@@ -1,40 +1,105 @@
 .cover {
-  background-image: url("../images/flower-art.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 25%;
-  background-attachment: fixed;
   /* filter: brightness(50%); */
 
   height: 600px;
   overflow: hidden;
   margin: 0 auto;
-
   color: white;
+}
+
+.image {
+  height: 100%;
+  background-image: url("../images/flower-art.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  background-attachment: fixed;
+
+  filter: blur(2px) brightness(0.9);
 }
 
 .title {
-  display: block;
-  width: 300px;
-  margin-left: 55%;
-  margin-top: 240px;
+  position: relative;
+  top: -380px;
+  left: 55%;
+
+  color: white;
+  background: #222111;
+  mix-blend-mode: multiply;
 }
 
 .title h1 {
-  font-size: 48px;
-  color: white;
-  background: #222111;
-  mix-blend-mode: multiply;
+  font-size: 32px;
+  padding: 8px;
 }
 
-.text {
-  display: block;
-  width: 600px;
-}
-
-.text p {
+.title p {
   font-size: 24px;
+  font-weight: 700;
+  padding: 12px;
+}
+
+.small {
+  max-width: 200px;
+}
+
+.large {
+  max-width: 440px;
+}
+
+.icons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  width: 75%;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.icon svg {
+  width: 48px;
+}
+
+.icon h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.icon p {
+  max-width: 200px;
+  font-size: 18px;
+}
+
+.faq h1 {
+  font-size: 32px;
+  text-align: left;
+}
+
+.faq {
+  width: 85%;
+  margin: 0 auto;
+  height: 25vh;
+}
+
+.faq-section {
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.question {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  padding: 4px;
+
+  background-color: #222;
   color: white;
-  background: #222111;
-  mix-blend-mode: multiply;
+}
+
+.answer {
+  text-align: left;
+  padding: 8px;
 }
