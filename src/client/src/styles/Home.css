@@ -84,14 +84,22 @@ p {
 }
 
 .faq-section {
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
+  height: 25vh;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.section {
+  padding-bottom: 18px;
 }
 
 .question {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
 
   padding: 4px;
 
@@ -102,4 +110,6 @@ p {
 .answer {
   text-align: left;
   padding: 8px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
 }

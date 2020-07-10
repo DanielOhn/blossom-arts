@@ -9,6 +9,8 @@ import Heart from "../icons/heart"
 import Puzzle from "../icons/puzzle"
 import Pencil from "../icons/pencil"
 
+import QASection from "../components/QASection"
+
 function Home() {
   const [answer, setAnswer] = useState(false)
 
@@ -48,15 +50,18 @@ function Home() {
         <h1>FAQ</h1>
 
         <div className="faq-section">
-          <div className="question">
-            <p>Yes, no maybe? I don't know. Can you repeat the question?</p>
-            <button onClick={showAnswer}>></button>
-          </div>
-          {answer && (
-            <div className="answer">
-              <p>You're not the boss of me now, and you're not so big!</p>
-            </div>
-          )}
+          <QASection
+            question="Yes, no maybe? I don't know. Can you repeat the question?"
+            answer="You're not the boss of me now, and you're not so big!"
+          />
+          <QASection
+            question="Yes, no maybe? I don't know. Can you repeat the question?"
+            answer="You're not the boss of me now, and you're not so big!"
+          />
+          <QASection
+            question="Yes, no maybe? I don't know. Can you repeat the question?"
+            answer="You're not the boss of me now, and you're not so big!"
+          />
         </div>
       </div>
     </div>
