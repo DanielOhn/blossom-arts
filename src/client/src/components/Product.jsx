@@ -28,6 +28,8 @@ const Product = ({ match }) => {
     }
 
     Promise.all([getProduct(), getPaymentIntent()]).then((results) => {
+      console.log(results[0].data[1])
+
       setProduct(results[0].data[0])
       setPrice(results[0].data[1])
       setSecret(results[1].data.clientSecret)
@@ -49,15 +51,27 @@ const Product = ({ match }) => {
   //     alert("An issue has occurred! Please try again later or contact support.")
   // }
 
+  /* <Elements stripe={stripePromise}>
+      <CheckoutForm secret={secret} />
+    </Elements> */
+
+  // To get the price for products, you need to add it to metadata on Stripe API.
   return (
     <div className="product">
       {product && price && (
         <>
-          <h1 className="secondary">{product.name}</h1>
-          <p className="primary">{product.description}</p>
-          <Elements stripe={stripePromise}>
-            <CheckoutForm secret={secret} />
-          </Elements>
+          <img src={product.images[0]} />
+          <div className="details">
+            <div classNam="heading">
+              <h1 className="secondary">{product.name}</h1>
+              <hr />
+              <p className="primary">{product.description}</p>
+            </div>
+            <div className="checkout">
+              <p className="light">${(price.unit_amount / 100).toFixed(2)}</p>
+              <button>Add to Cart</button>
+            </div>
+          </div>
         </>
       )}
     </div>
