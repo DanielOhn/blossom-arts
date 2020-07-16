@@ -1,8 +1,12 @@
 const express = require("express")
+const bodyParser = require("body-parser")
 const app = express()
 const port = 3001
 
 const stripe = require("stripe")(process.env.SK_TEST_KEY)
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get("/", (req, res) => res.send("Hello World!"))
 
@@ -39,7 +43,11 @@ const calculateOrderAmount = (items) => {
   return 1400
 }
 
-app.get("/create-payment-intent", async (req, res) => {
+app.post("/create-payment-intent", async (req, res) => {
+  // const {items} = req.body
+
+  console.log(req.body)
+
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 1000,
     currency: "usd",

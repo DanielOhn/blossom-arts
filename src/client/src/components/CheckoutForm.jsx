@@ -75,14 +75,10 @@ function CheckoutForm({ secret }) {
   const stripe = useStripe()
   const elements = useElements()
 
-  useEffect(() => {}, [])
-
   const handleChange = async (event) => {
     setDisabled(event.empty)
     setError(event.error ? event.error.message : "")
   }
-
-  useEffect(() => {}, [])
 
   const handleSubmit = async (event) => {
     event.preventDefault()

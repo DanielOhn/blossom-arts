@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
@@ -7,12 +7,17 @@ import Flower from "../icons/flower"
 import black_logo from "../icons/logos/ba_logo_black.png"
 
 import Home from "../pages/Home"
-import About from "../pages/About"
+// import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Product from "../components/Product"
 import Products from "../pages/Products"
+import Checkout from "../pages/Checkout"
 
 function App() {
+  const [cart, setCart] = useState(
+    localStorage.getItem("cart") || localStorage.setItem("cart", [])
+  )
+
   return (
     <div className="App">
       <Router>
@@ -26,20 +31,20 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>
               <Link to="/products">Products</Link>
+            </li>
+            <li>
+              <Link to="/checkout">Checkout</Link>
             </li>
           </ul>
         </div>
         <div className="content">
           <Switch>
             <Route path="/" exact render={() => <Home />} />
-            <Route path="/about" exact render={() => <About />} />
+            <Route path="/checkout" exact render={() => <Checkout />} />
             <Route path="/contact" exact render={() => <Contact />} />
             <Route path="/products" exact component={Products} />
             <Route

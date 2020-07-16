@@ -3,12 +3,6 @@ import axios from "axios"
 
 import "../styles/Fonts.css"
 import "../styles/Product.css"
-import CheckoutForm from "./CheckoutForm"
-
-import { loadStripe } from "@stripe/stripe-js"
-import { Elements } from "@stripe/react-stripe-js"
-
-const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 // Don't call loadstripe
 // Don't want to load more than u have too
@@ -16,60 +10,76 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 const Product = ({ match }) => {
   const [product, setProduct] = useState()
   const [price, setPrice] = useState()
-  const [secret, setSecret] = useState()
+  const [qt, setqt] = useState(1)
 
   useEffect(() => {
-    function getProduct() {
-      return axios.get(`/products/${match.params.id}`)
-    }
+    axios.get(`/products/${match.params.id}`).then((results) => {
+      console.log(results.data)
 
-    function getPaymentIntent() {
-      return axios.get(`/create-payment-intent`)
-    }
-
-    Promise.all([getProduct(), getPaymentIntent()]).then((results) => {
-      console.log(results[0].data[1])
-
-      setProduct(results[0].data[0])
-      setPrice(results[0].data[1])
-      setSecret(results[1].data.clientSecret)
+      setProduct(results.data[0])
+      setPrice(results.data[1])
     })
   }, [])
 
-  // async function handleToken(token) {
-  //   console.log(token)
-
-  //   const response = await axios.post("/checkout", {
-  //     token,
-  //     product,
-  //     price,
-  //   })
-  //   const { status } = response.data
-
-  //   if (status === "success") alert("Success! Check email for details.")
-  //   else
-  //     alert("An issue has occurred! Please try again later or contact support.")
-  // }
-
-  /* <Elements stripe={stripePromise}>
-      <CheckoutForm secret={secret} />
-    </Elements> */
-
   // To get the price for products, you need to add it to metadata on Stripe API.
+
+  const updateCart = () => {
+    let prod = {
+      productID: product.id,
+      price: price.id,
+      qt: qt,
+    }
+
+    let cart
+
+    if (localStorage.getItem(cart)) cart = localStorage.getItem(cart)
+    else cart = []
+
+    cart.push(JSON.stringify(prod))
+
+    localStorage.setItem("cart", cart)
+  }
+
+  const subQt = () => {
+    let update = qt - 1
+
+    if (update <= 0) {
+      update = 1
+      alert("Can't go below 1.")
+    }
+
+    setqt(update)
+  }
+
+  const addQt = () => {
+    let update = qt + 1
+
+    setqt(update)
+  }
+
   return (
     <div className="product">
       {product && price && (
         <>
           <img src={product.images[0]} />
           <div className="details">
-            <div classNam="heading">
+            <div className="details-header">
               <h1 className="secondary">{product.name}</h1>
               <hr />
               <p className="primary">{product.description}</p>
             </div>
-            <div className="checkout">
+            <div className="product-price">
               <p className="light">${(price.unit_amount / 100).toFixed(2)}</p>
-              <button>Add to Cart</button>
+              <p className="primary">Qt. {qt}</p>
+              <button className="heavy" onClick={addQt}>
+                +
+              </button>
+              <button className="heavy" onClick={subQt}>
+                -
+              </button>
+              <button className="heavy" onClick={updateCart}>
+                Add to Cart
+              </button>
             </div>
           </div>
         </>

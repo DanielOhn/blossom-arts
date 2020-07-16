@@ -1,0 +1,10 @@
+.checkout {
+  margin: 0 auto;
+
+  height: 80vh;
+  width: 85%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+}
