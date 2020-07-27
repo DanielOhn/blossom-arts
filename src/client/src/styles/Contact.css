@@ -1,5 +1,18 @@
 .contact {
   min-height: 40vh;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.contact h1 {
+  text-align: left;
+  margin: 0;
+}
+
+.contact p {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: left;
 }
 
 .contact-form {
@@ -7,16 +20,44 @@
   margin: auto;
 }
 
-.contact form {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
+.contact-form {
+  display: grid;
+  justify-items: stretch;
+  max-width: 80%;
+  margin: 0 auto;
+
+  grid-template-rows: 32px 32px 32px 32px;
+  grid-template-columns: 45% auto 45%;
+
+  row-gap: 16px;
 }
 
+.contact-form .name {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.contact-form .email {
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+}
+
+.contact-form .text {
+  grid-row: 2 / 4;
+  grid-column: 1 / 4;
+}
+
+.contact-form .submit {
+  justify-self: flex-end;
+  grid-row: 4 / 5;
+  grid-column: 3 / 4;
+}
+
+/* 
 .contact input,
 textarea {
   margin: 8px;
-}
+} */
 
 input[type="text"],
 input[type="email"],

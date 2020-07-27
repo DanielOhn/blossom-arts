@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
 // import { loadStripe } from "@stripe/stripe-js"
 
@@ -8,41 +8,45 @@ const BillingDetailsFields = () => {
   return (
     <div className="FormGroup">
       <input
+        className="name"
         name="name"
         label="Name"
         type="text"
-        placeholder="Jane Doe"
+        placeholder="Full Name"
         required
       />
       <input
+        className="email"
         name="email"
         label="Email"
         type="email"
-        placeholder="jane.doe@example.com"
+        placeholder="Email"
         required
       />
       <input
+        className="address"
         name="address"
         label="Address"
         type="text"
-        placeholder="185 Berry St. Suite 550"
+        placeholder="Adderss"
         required
       />
       <input
+        className="city"
         name="city"
         label="City"
         type="text"
-        placeholder="San Francisco"
+        placeholder="City"
         required
       />
       <input
+        className="state"
         name="state"
         label="State"
         type="text"
-        placeholder="California"
+        placeholder="State"
         required
       />
-      <input name="zip" label="ZIP" type="text" placeholder="94103" required />
     </div>
   )
 }

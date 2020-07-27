@@ -1,22 +1,23 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 
-import Flower from "../icons/flower"
+// import Flower from "../icons/flower"
 import black_logo from "../icons/logos/ba_logo_black.png"
 
 import Home from "../pages/Home"
-// import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Product from "../components/Product"
 import Products from "../pages/Products"
 import Checkout from "../pages/Checkout"
 
 function App() {
-  const [cart, setCart] = useState(
-    localStorage.getItem("cart") || localStorage.setItem("cart", [])
-  )
+  useEffect(() => {
+    let cart = localStorage.getItem("cart")
+
+    if (!cart) localStorage.setItem("cart", [])
+  })
 
   return (
     <div className="App">

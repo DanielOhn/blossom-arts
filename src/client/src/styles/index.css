@@ -1,11 +1,11 @@
 :root {
   --color-mode: "light";
 
-  --bg-lite: white;
-  --prime: #ca907e;
-  --second: #994636;
-  --lite: #ffc49b;
-  --link-lite: #adb6c4;
+  --bg-lite: #bbd1dd;
+  --prime: #c98686;
+  --second: #966b9d;
+  --lite: #16001e;
+  --link-lite: #131112;
 
   --bg-dark: #213409;
   --prime-dark: #eef8e3;
@@ -13,8 +13,8 @@
   --lite-dark: #496d1d;
   --link-dark: #7fbd32;
 }
-
-/* [data-user-color-scheme="light"] {
+/* 
+[data-user-color-scheme="light"] {
   --bg: var(--bg-lite);
   --primary: var(--prime);
   --secondary: var(--second);
@@ -33,6 +33,7 @@
 body {
   margin: 0;
   background-color: var(--bg);
+  background-image: linear-gradient(var(--bg), rgba(100%, 100%, 100%, 0.7));
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Cinzel",
     "Montserrat", sans-serif;

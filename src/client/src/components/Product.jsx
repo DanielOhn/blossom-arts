@@ -14,30 +14,44 @@ const Product = ({ match }) => {
 
   useEffect(() => {
     axios.get(`/products/${match.params.id}`).then((results) => {
-      console.log(results.data)
-
       setProduct(results.data[0])
       setPrice(results.data[1])
     })
   }, [])
 
   // To get the price for products, you need to add it to metadata on Stripe API.
-
-  const updateCart = () => {
+  const addProduct = () => {
     let prod = {
       productID: product.id,
-      price: price.id,
+      productName: product.name,
+      productImage: product.images[0],
+      priceID: price.id,
       qt: qt,
     }
 
-    let cart
+    let cart = []
 
-    if (localStorage.getItem(cart)) cart = localStorage.getItem(cart)
-    else cart = []
+    if (localStorage.getItem("cart"))
+      cart = JSON.parse(localStorage.getItem("cart"))
 
-    cart.push(JSON.stringify(prod))
+    if (!updateProduct(cart, prod)) {
+      cart.push(prod)
+    }
 
-    localStorage.setItem("cart", cart)
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }
+
+  const updateProduct = (cart, prod) => {
+    let bool = false
+
+    cart.map((item, i) => {
+      if (item.productID === prod.productID) {
+        item.qt = qt
+        bool = true
+      }
+    })
+
+    return bool
   }
 
   const subQt = () => {
@@ -77,7 +91,7 @@ const Product = ({ match }) => {
               <button className="heavy" onClick={subQt}>
                 -
               </button>
-              <button className="heavy" onClick={updateCart}>
+              <button className="heavy" onClick={addProduct}>
                 Add to Cart
               </button>
             </div>

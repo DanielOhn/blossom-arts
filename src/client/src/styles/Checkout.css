@@ -8,3 +8,20 @@
   flex-flow: column nowrap;
   justify-content: space-evenly;
 }
+
+.checkout h1,
+hr {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.cart {
+  width: 100%;
+}
+
+.cart img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 const QASection = (props) => {
   const [answer, setAnswer] = useState(false)
@@ -11,7 +11,7 @@ const QASection = (props) => {
     <div className="section">
       <div className="question">
         <p>{props.question}</p>
-        <button onClick={showAnswer}>></button>
+        <button onClick={showAnswer}>.</button>
       </div>
       {answer && (
         <div className="answer">

@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import "../styles/Home.css"
 
-import axios from "axios"
-import Cart from "../icons/cart"
-import flower from "../images/flower-art.jpg"
+// import Cart from "../icons/cart"
 
 import Heart from "../icons/heart"
 import Puzzle from "../icons/puzzle"
@@ -12,12 +10,6 @@ import Pencil from "../icons/pencil"
 import QASection from "../components/QASection"
 
 function Home() {
-  const [answer, setAnswer] = useState(false)
-
-  function showAnswer() {
-    setAnswer(!answer)
-  }
-
   return (
     <div className="home">
       <div className="cover">
