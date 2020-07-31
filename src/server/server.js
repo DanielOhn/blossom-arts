@@ -39,22 +39,50 @@ app.get("/products/:id", (req, res) => {
 //   res.render("checkout", { client_secret: intent.client_secret })
 // })
 
-const calculateOrderAmount = (items) => {
-  return 1400
+const getPrices = (items) => {
+  let finalPrices = []
+
+  Object.keys(items).map((i) => {
+    let item = items[i]
+
+    stripe.prices.retrieve(item.price, (e, price) => {
+      // console.log(price.unit_amount, item.qt)
+      if (price) {
+        finalPrices.push(price.unit_amount)
+      } else {
+        return finalPrices
+      }
+    })
+  })
+
+  return finalPrices
 }
 
 app.post("/create-payment-intent", async (req, res) => {
-  // const {items} = req.body
+  // console.log(req.body)
+  let prices = getPrices(req.body)
+  let total = 50
 
-  console.log(req.body)
+  console.log(prices)
 
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: 1000,
-    currency: "usd",
-  })
+  for (let i = 0; i < prices.length; i++) {
+    total += prices[i] * req.body[i].qt
+  }
+
+  console.log(total)
+
+  const paymentIntent = await stripe.paymentIntents
+    .create({
+      amount: total,
+      currency: "usd",
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 
   res.send({
     clientSecret: paymentIntent.client_secret,
+    prices: prices,
   })
 })
 
