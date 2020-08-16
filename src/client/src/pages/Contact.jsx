@@ -1,8 +1,6 @@
 import React from "react"
 import "../styles/Contact.css"
 
-import Header from "../components/Header"
-
 function Contact() {
   return (
     <div className="contact">

@@ -9,14 +9,13 @@ import { Elements } from "@stripe/react-stripe-js"
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 function Checkout() {
-  const [cart, setCart] = useState(localStorage.getItem("cart"))
+  const [cart] = useState(localStorage.getItem("cart"))
   const [secret, setSecret] = useState()
   const [prices, setPrices] = useState()
+  const [total, setTotal] = useState()
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    if (!cart) setCart(localStorage.getItem("cart"))
-
     fetch(`/create-payment-intent`, {
       method: "POST",
       headers: {
@@ -31,6 +30,7 @@ function Checkout() {
       .then((data) => {
         setSecret(data.clientSecret)
         setPrices(data.prices)
+        setTotal(data.total)
       })
       .catch((err) => {
         console.log(err)
@@ -40,22 +40,26 @@ function Checkout() {
   const cartListing = Object.keys(JSON.parse(cart)).map((i) => {
     let cartCopy = JSON.parse(cart)
 
-    console.log(prices)
-
     let product = cartCopy[i].productName
     let img = cartCopy[i].productImage
     let qt = cartCopy[i].qt
 
+    let price = 0
+
+    if (prices) price = prices[i].unit_amount / 100
+
     return (
-      <tr>
-        <td>
-          <img src={img}></img>
-        </td>
-        <td>{product}</td>
-        <td>1.00</td>
-        <td>{qt}</td>
-        <td>{(qt * 1.0).toFixed(2)}</td>
-      </tr>
+      <tbody key={i}>
+        <tr>
+          <td>
+            <img alt="image" src={img}></img>
+          </td>
+          <td>{product}</td>
+          <td>${price.toFixed(2)}</td>
+          <td>{qt}</td>
+          <td>${(qt * price).toFixed(2)}</td>
+        </tr>
+      </tbody>
     )
   })
 
@@ -65,23 +69,29 @@ function Checkout() {
         <h1 className="primary">Checkout</h1>
         <hr className="primary" />
 
-        {cart && (
+        {cart && prices && (
           <table className="cart">
-            <tr>
-              <th></th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Qt.</th>
-              <th>Total</th>
-            </tr>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qt.</th>
+                <th>Total</th>
+              </tr>
+            </tbody>
             {cartListing}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>$3.00</td>
-            </tr>
+            {total && (
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>${(total / 100).toFixed(2)}</td>
+                </tr>
+              </tfoot>
+            )}
           </table>
         )}
       </div>

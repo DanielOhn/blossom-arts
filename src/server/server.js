@@ -27,54 +27,23 @@ app.get("/products/:id", (req, res) => {
   })
 })
 
-// app.get("/checkout", async (req, res) => {
-//   const intent = await stripe.paymentIntents.create({
-//     amount: 1099,
-//     currency: "usd",
-//     // Verify your integration in this guide by including this parameter
-//     metadata: { integration_check: "accept_a_payment" },
-//   })
-
-//   console.log(intent)
-//   res.render("checkout", { client_secret: intent.client_secret })
-// })
-
-const getPrices = (items) => {
-  let finalPrices = []
-
-  Object.keys(items).map((i) => {
-    let item = items[i]
-
-    stripe.prices.retrieve(item.price, (e, price) => {
-      // console.log(price.unit_amount, item.qt)
-      if (price) {
-        finalPrices.push(price.unit_amount)
-      } else {
-        return finalPrices
-      }
-    })
-  })
-
-  return finalPrices
-}
-
 app.post("/create-payment-intent", async (req, res) => {
-  // console.log(req.body)
-  let prices = getPrices(req.body)
-  let total = 50
+  let prices = req.body
 
-  console.log(prices)
+  const getPrices = await getTotal(prices)
 
-  for (let i = 0; i < prices.length; i++) {
-    total += prices[i] * req.body[i].qt
-  }
-
-  console.log(total)
+  let total = getPrices.reduce((accum, value) => {
+    const findQt = prices.find((val, index) => {
+      return val.priceID === value.id
+    })
+    return accum + value.unit_amount * findQt.qt
+  }, 0)
 
   const paymentIntent = await stripe.paymentIntents
     .create({
       amount: total,
       currency: "usd",
+      receipt_email: "ohndaniel@gmail.com",
     })
     .catch((err) => {
       console.log(err)
@@ -82,8 +51,20 @@ app.post("/create-payment-intent", async (req, res) => {
 
   res.send({
     clientSecret: paymentIntent.client_secret,
-    prices: prices,
+    prices: getPrices,
+    total: total,
   })
 })
+
+async function getTotal(prices) {
+  const getPrices = Object.keys(prices)
+
+  return Promise.all(
+    getPrices.map((i) => {
+      let item = prices[i]
+      return stripe.prices.retrieve(item.priceID)
+    })
+  ).then((data) => data)
+}
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))

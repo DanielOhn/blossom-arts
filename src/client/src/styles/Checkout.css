@@ -16,6 +16,10 @@ hr {
   text-align: left;
 }
 
+hr {
+  margin-bottom: 8px;
+}
+
 .cart {
   width: 100%;
 }
