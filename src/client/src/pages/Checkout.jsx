@@ -9,7 +9,9 @@ import { Elements } from "@stripe/react-stripe-js"
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 function Checkout() {
-  const [cart] = useState(localStorage.getItem("cart"))
+  const [cart] = useState(
+    localStorage.getItem("cart") ? localStorage.getItem("cart") : {}
+  )
   const [secret, setSecret] = useState()
   const [prices, setPrices] = useState()
   const [total, setTotal] = useState()
@@ -52,7 +54,7 @@ function Checkout() {
       <tbody key={i}>
         <tr>
           <td>
-            <img alt="image" src={img}></img>
+            <img alt={product} src={img}></img>
           </td>
           <td>{product}</td>
           <td>${price.toFixed(2)}</td>

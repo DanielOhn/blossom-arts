@@ -75,7 +75,7 @@ const Product = ({ match }) => {
     <div className="product">
       {product && price && (
         <>
-          <img src={product.images[0]} />
+          <img alt={product.name} src={product.images[0]} />
           <div className="details">
             <div className="details-header">
               <h1 className="secondary">{product.name}</h1>

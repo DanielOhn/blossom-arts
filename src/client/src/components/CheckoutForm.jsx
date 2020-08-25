@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
-// import { loadStripe } from "@stripe/stripe-js"
 
 import "../styles/CheckoutForm.css"
 
@@ -91,17 +90,6 @@ function CheckoutForm({ secret }) {
     if (!stripe || !elements) {
       return
     }
-
-    // const billingDetails = {
-    //   name: event.target.name.value,
-    //   email: event.target.email.value,
-    //   address: {
-    //     city: event.target.city.value,
-    //     line1: event.target.address.value,
-    //     state: event.target.state.value,
-    //     postal_code: event.target.zip.value,
-    //   },
-    // }
 
     const result = await stripe.confirmCardPayment(secret, {
       payment_method: {

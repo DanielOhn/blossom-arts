@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
@@ -13,17 +13,11 @@ import Products from "../pages/Products"
 import Checkout from "../pages/Checkout"
 
 function App() {
-  useEffect(() => {
-    let cart = localStorage.getItem("cart")
-
-    if (!cart) localStorage.setItem("cart", [])
-  })
-
   return (
     <div className="App">
       <Router>
         <div className="logo">
-          <img src={black_logo} />
+          <img alt="Background cover" src={black_logo} />
           {/* <Flower /> */}
         </div>
         <div className="navbar">

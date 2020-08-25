@@ -24,7 +24,7 @@ const Products = ({ match }) => {
     return (
       <div className="product-card" key={product.id}>
         <div className="product-header">
-          <img src={product.images[0]} />
+          <img alt={name} src={product.images[0]} />
           <div className="product-detail">
             <h2>
               <Link to={`${match.url}/${product.id}`}>{name}</Link>
