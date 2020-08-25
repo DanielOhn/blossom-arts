@@ -10,7 +10,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 function Checkout() {
   const [cart] = useState(
-    localStorage.getItem("cart") ? localStorage.getItem("cart") : {}
+    localStorage.getItem("cart") ? localStorage.getItem("cart") : null
   )
   const [secret, setSecret] = useState()
   const [prices, setPrices] = useState()
@@ -39,8 +39,15 @@ function Checkout() {
       })
   }, [cart])
 
-  const cartListing = Object.keys(JSON.parse(cart)).map((i) => {
-    let cartCopy = JSON.parse(cart)
+  const clearCart = () => {
+    localStorage.removeItem("cart")
+    window.location.reload(false)
+  }
+
+  const cartListing = Object.keys(cart ? JSON.parse(cart) : {}).map((i) => {
+    let cartCopy
+
+    cart ? (cartCopy = JSON.parse(cart)) : (cartCopy = {})
 
     let product = cartCopy[i].productName
     let img = cartCopy[i].productImage
@@ -70,41 +77,45 @@ function Checkout() {
       <div className="checkout-details">
         <h1 className="primary">Checkout</h1>
         <hr className="primary" />
-
         {cart && prices && (
-          <table className="cart">
-            <tbody>
-              <tr>
-                <th></th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Qt.</th>
-                <th>Total</th>
-              </tr>
-            </tbody>
-            {cartListing}
-            {total && (
-              <tfoot>
+          <>
+            <table className="cart">
+              <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>${(total / 100).toFixed(2)}</td>
+                  <th></th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Qt.</th>
+                  <th>Total</th>
                 </tr>
-              </tfoot>
-            )}
-          </table>
+              </tbody>
+              {cartListing}
+              {total && (
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${(total / 100).toFixed(2)}</td>
+                  </tr>
+                </tfoot>
+              )}
+            </table>
+            <button onClick={clearCart}>Clear Cart</button>
+          </>
         )}
+        {!cart && <p>No items in cart, feel free to browse our products!</p>}
       </div>
-
-      <div className="payment">
-        <h1 className="primary">Payment</h1>
-        <hr className="primary" />
-        <Elements stripe={stripePromise}>
-          <CheckoutForm secret={secret} />
-        </Elements>
-      </div>
+      {secret && (
+        <div className="payment">
+          <h1 className="primary">Payment</h1>
+          <hr className="primary" />
+          <Elements stripe={stripePromise}>
+            <CheckoutForm secret={secret} />
+          </Elements>
+        </div>
+      )}
     </div>
   )
 }
