@@ -6,6 +6,9 @@ import CheckoutForm from "../components/CheckoutForm"
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
 
+import ClearCart from "../icons/clearCart"
+import RemoveItem from "../icons/removeItem"
+
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 function Checkout() {
@@ -67,6 +70,9 @@ function Checkout() {
           <td>${price.toFixed(2)}</td>
           <td>{qt}</td>
           <td>${(qt * price).toFixed(2)}</td>
+          <td>
+            <RemoveItem />
+          </td>
         </tr>
       </tbody>
     )
@@ -87,6 +93,7 @@ function Checkout() {
                   <th>Price</th>
                   <th>Qt.</th>
                   <th>Total</th>
+                  <th></th>
                 </tr>
               </tbody>
               {cartListing}
@@ -98,11 +105,13 @@ function Checkout() {
                     <td></td>
                     <td></td>
                     <td>${(total / 100).toFixed(2)}</td>
+                    <td>
+                      <ClearCart onClick={clearCart} />
+                    </td>
                   </tr>
                 </tfoot>
               )}
             </table>
-            <button onClick={clearCart}>Clear Cart</button>
           </>
         )}
         {!cart && <p>No items in cart, feel free to browse our products!</p>}

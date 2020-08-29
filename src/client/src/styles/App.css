@@ -22,6 +22,11 @@
   padding-bottom: 16px;
 }
 
+.logo-image {
+  max-height: 240px;
+  width: auto;
+}
+
 .nav {
   list-style: none;
   margin: auto;

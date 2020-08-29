@@ -1,6 +1,7 @@
 .product {
   margin: 0 auto;
-  width: 85%;
+  width: 800px;
+  height: auto;
 
   display: flex;
   flex-flow: row nowrap;
@@ -52,4 +53,29 @@ hr {
   border-radius: 4%;
   color: var(--primary);
   background-color: var(--secondary);
+}
+
+@media only screen and (max-width: 768px) {
+  .product {
+    width: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    align-items: center;
+  }
+
+  .product img {
+    max-height: 400px;
+    object-fit: contain;
+
+    box-shadow: none;
+  }
+
+  .details {
+    margin: 0;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+  }
 }

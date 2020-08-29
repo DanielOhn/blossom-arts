@@ -3,8 +3,7 @@ import "../styles/App.css"
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 
-// import Flower from "../icons/flower"
-import black_logo from "../icons/logos/ba_logo_black.png"
+import logo from "../images/ba-logo.png"
 
 import Home from "../pages/Home"
 import Contact from "../pages/Contact"
@@ -17,8 +16,7 @@ function App() {
     <div className="App">
       <Router>
         <div className="logo">
-          <img alt="Background cover" src={black_logo} />
-          {/* <Flower /> */}
+          <img alt="Background cover" className="logo-image" src={logo} />
         </div>
         <div className="navbar">
           <ul className="nav">

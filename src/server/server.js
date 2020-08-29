@@ -36,11 +36,10 @@ app.get("/products/:id", (req, res) => {
 
 app.post("/contact", (req, res) => {
   const msg = {
-    to: "ohndaniel@gmail.com",
-    from: "ohndaniel@gmail.com",
+    to: "ba_testing@zohomail.com",
+    from: "ba_testing@zohomail.com",
     subject: "Sending with Twilio SendGrid is Fun",
-    text: "and easy to do anywhere, even with Node.js",
-    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+    text: "Wow, we managed to send an email.",
   }
 
   sgMail
