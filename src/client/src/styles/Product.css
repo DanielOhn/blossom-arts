@@ -48,7 +48,7 @@ hr {
   vertical-align: bottom;
 }
 
-.product-price button {
+.add-cart {
   border: none;
   border-radius: 4%;
   color: var(--primary);

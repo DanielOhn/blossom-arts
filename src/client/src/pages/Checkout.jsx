@@ -8,6 +8,8 @@ import { Elements } from "@stripe/react-stripe-js"
 
 import ClearCart from "../icons/clearCart"
 import RemoveItem from "../icons/removeItem"
+import Plus from "../icons/plus"
+import Minus from "../icons/minus"
 
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
@@ -81,7 +83,11 @@ function Checkout() {
           </td>
           <td>{product}</td>
           <td>${price.toFixed(2)}</td>
-          <td>{qt}</td>
+          <td>
+            <Minus />
+            <span>{qt}</span>
+            <Plus />
+          </td>
           <td>${(qt * price).toFixed(2)}</td>
           <td>
             <RemoveItem onClick={() => removeItem(product)} />

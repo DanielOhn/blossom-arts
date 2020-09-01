@@ -1,7 +1,7 @@
-.remove-item {
+.plus-icon {
+  fill: var(--primary);
   background: none;
   border: none;
-  fill: red;
 
   display: inline-block;
   vertical-align: middle;

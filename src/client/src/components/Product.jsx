@@ -4,6 +4,9 @@ import axios from "axios"
 import "../styles/Fonts.css"
 import "../styles/Product.css"
 
+import Plus from "../icons/plus"
+import Minus from "../icons/minus"
+
 // Don't call loadstripe
 // Don't want to load more than u have too
 
@@ -85,13 +88,10 @@ const Product = ({ match }) => {
             <div className="product-price">
               <p className="light">${(price.unit_amount / 100).toFixed(2)}</p>
               <p className="primary">Qt. {qt}</p>
-              <button className="heavy" onClick={addQt}>
-                +
-              </button>
-              <button className="heavy" onClick={subQt}>
-                -
-              </button>
-              <button className="heavy" onClick={addProduct}>
+              <Minus onClick={subQt} />
+              <Plus onClick={addQt} />
+
+              <button className="heavy add-cart" onClick={addProduct}>
                 Add to Cart
               </button>
             </div>

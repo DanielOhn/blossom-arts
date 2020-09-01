@@ -1,4 +1,7 @@
 .clear-cart {
   background: none;
   border: none;
+
+  display: inline-block;
+  vertical-align: middle;
 }
