@@ -14,7 +14,7 @@ import Minus from "../icons/minus"
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
 
 function Checkout() {
-  const [cart] = useState(
+  const [cart, setCart] = useState(
     localStorage.getItem("cart") ? localStorage.getItem("cart") : null
   )
   const [secret, setSecret] = useState()
@@ -62,6 +62,38 @@ function Checkout() {
     })
   }
 
+  const addQt = (name) => {
+    let result = []
+
+    JSON.parse(cart).forEach((prod) => {
+      if (prod.productName === name) {
+        prod.qt++
+      }
+
+      result.push(prod)
+    })
+
+    setCart(JSON.stringify(result))
+  }
+
+  const subQt = (name) => {
+    let result = []
+
+    JSON.parse(cart).forEach((prod) => {
+      if (prod.productName === name) {
+        if (prod.qt === 1) {
+          alert("Can't go below 1")
+        } else {
+          prod.qt--
+        }
+      }
+
+      result.push(prod)
+    })
+
+    setCart(JSON.stringify(result))
+  }
+
   const cartListing = Object.keys(cart ? JSON.parse(cart) : {}).map((i) => {
     let cartCopy
 
@@ -84,9 +116,9 @@ function Checkout() {
           <td>{product}</td>
           <td>${price.toFixed(2)}</td>
           <td>
-            <Minus />
+            <Minus onClick={() => subQt(product)} />
             <span>{qt}</span>
-            <Plus />
+            <Plus onClick={() => addQt(product)} />
           </td>
           <td>${(qt * price).toFixed(2)}</td>
           <td>
