@@ -47,6 +47,19 @@ function Checkout() {
     window.location.reload(false)
   }
 
+  const removeItem = (name) => {
+    Object.keys(JSON.parse(cart)).map((i) => {
+      let copy = JSON.parse(cart)
+      let result = copy.filter((prod) => prod.productName !== name)
+
+      result.length !== 0
+        ? localStorage.setItem("cart", JSON.stringify(result))
+        : localStorage.removeItem("cart")
+
+      window.location.reload(true)
+    })
+  }
+
   const cartListing = Object.keys(cart ? JSON.parse(cart) : {}).map((i) => {
     let cartCopy
 
@@ -71,7 +84,7 @@ function Checkout() {
           <td>{qt}</td>
           <td>${(qt * price).toFixed(2)}</td>
           <td>
-            <RemoveItem />
+            <RemoveItem onClick={() => removeItem(product)} />
           </td>
         </tr>
       </tbody>

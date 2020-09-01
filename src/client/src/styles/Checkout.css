@@ -25,7 +25,7 @@ hr {
 }
 
 .cart img {
-  max-height: 100px;
-  max-width: 100px;
-  object-fit: scale-down;
+  height: 100px;
+  width: 100px;
+  object-fit: fill;
 }
