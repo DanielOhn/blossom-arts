@@ -23,13 +23,8 @@ app.get("/products", (req, res) => {
 
 app.get("/products/:id", (req, res) => {
   stripe.products.retrieve(req.params.id, (err, product) => {
-    let final_product = []
-    final_product.push(product)
-
-    stripe.prices.retrieve(product.metadata.price, (e, price) => {
-      final_product.push(price)
-
-      res.json(final_product)
+    stripe.skus.list({ active: true }).then((skus) => {
+      res.json(skus.data.filter((sku) => sku.product === product.id))
     })
   })
 })

@@ -12,23 +12,23 @@ import Minus from "../icons/minus"
 
 const Product = ({ match }) => {
   const [product, setProduct] = useState()
-  const [price, setPrice] = useState()
+  const [skus, setSkus] = useState()
   const [qt, setqt] = useState(1)
 
   useEffect(() => {
     axios.get(`/products/${match.params.id}`).then((results) => {
+      console.log(results.data)
+
+      setSkus(results.data)
       setProduct(results.data[0])
-      setPrice(results.data[1])
     })
   }, [])
 
-  // To get the price for products, you need to add it to metadata on Stripe API.
   const addProduct = () => {
     let prod = {
       productID: product.id,
-      productName: product.name,
-      productImage: product.images[0],
-      priceID: price.id,
+      productName: product.attributes.name,
+      price: product.price,
       qt: qt,
     }
 
@@ -57,6 +57,16 @@ const Product = ({ match }) => {
     return bool
   }
 
+  const changeProduct = (num) => {
+    setProduct(skus[num])
+  }
+
+  const addQt = () => {
+    let update = qt + 1
+
+    setqt(update)
+  }
+
   const subQt = () => {
     let update = qt - 1
 
@@ -68,27 +78,30 @@ const Product = ({ match }) => {
     setqt(update)
   }
 
-  const addQt = () => {
-    let update = qt + 1
-
-    setqt(update)
-  }
-
   return (
     <div className="product">
-      {product && price && (
+      {product && (
         <>
-          <img alt={product.name} src={product.images[0]} />
+          <img alt={product.name} src={product.image} />
           <div className="details">
             <div className="details-header">
-              <h1 className="secondary">{product.name}</h1>
+              <h1 className="secondary">{product.attributes.name}</h1>
               <hr />
-              <p className="primary">{product.description}</p>
+              <button className="light" onClick={() => changeProduct(0)}>
+                Purple
+              </button>
+              <button className="light" onClick={() => changeProduct(1)}>
+                White
+              </button>
+              <button className="light" onClick={() => changeProduct(2)}>
+                Blue
+              </button>
             </div>
             <div className="product-price">
-              <p className="light">${(price.unit_amount / 100).toFixed(2)}</p>
-              <p className="primary">Qt. {qt}</p>
+              <p className="light">${(product.price / 100).toFixed(2)}</p>
+
               <Minus onClick={subQt} />
+              <p className="primary">Qt. {qt}</p>
               <Plus onClick={addQt} />
 
               <button className="heavy add-cart" onClick={addProduct}>
