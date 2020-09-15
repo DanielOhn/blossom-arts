@@ -37,12 +37,13 @@ function Contact() {
             answer="It usually takes around 2 week until you recieve your product if you live within the United States."
           />
           <QASection
-            question="Yes, no maybe? I don't know. Can you repeat the question?"
-            answer="You're not the boss of me now, and you're not so big!"
+            question="One of your products is out of stock.  When will you get more?"
+            answer="It usually takes a while for us to restock on certain products since everything is made by hand.  
+            Expect it to restock in about 3 weeks time depending on the popularity of the product."
           />
           <QASection
-            question="Yes, no maybe? I don't know. Can you repeat the question?"
-            answer="You're not the boss of me now, and you're not so big!"
+            question="Why is Yvette a dumb brat?"
+            answer="Wouldn't we all like to know the answer to this one."
           />
         </div>
       </div>

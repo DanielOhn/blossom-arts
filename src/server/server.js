@@ -47,35 +47,52 @@ app.post("/contact", (req, res) => {
     })
 })
 
-app.post("/create-payment-intent", async (req, res) => {
+app.post("/get-payment-intent", async (req, res) => {
   let items = req.body
-  const getPrices = await getTotal(items)
 
-  let total = getPrices.reduce((accum, value) => {
+  console.log(items)
+
+  // const paymentIntent = await stripe.paymentIntents
+  //   .create({
+  //     amount: total,
+  //     currency: "usd",
+  //     receipt_email: "ohndaniel@gmail.com",
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+
+  // res.send({
+  //   clientSecret: paymentIntent.client_secret,
+  // })
+})
+
+app.post("/get-payment", async (req, res) => {
+  let items = req.body
+  const getPrices = await getItems(items)
+
+  let total = getTotal(getPrices, items)
+
+  total.then((data) => {
+    res.send({
+      prices: getPrices,
+      total: data,
+    })
+  })
+})
+
+async function getTotal(skus, items) {
+  let total = skus.reduce((accum, value) => {
     const findQt = items.find((val, index) => {
       return val.productID === value.id
     })
     return accum + value.price * findQt.qt
   }, 0)
 
-  const paymentIntent = await stripe.paymentIntents
-    .create({
-      amount: total,
-      currency: "usd",
-      receipt_email: "ohndaniel@gmail.com",
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  return total
+}
 
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-    prices: getPrices,
-    total: total,
-  })
-})
-
-async function getTotal(items) {
+async function getItems(items) {
   const getSkus = Object.keys(items)
 
   return Promise.all(

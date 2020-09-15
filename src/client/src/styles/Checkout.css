@@ -20,6 +20,10 @@ hr {
   margin-bottom: 8px;
 }
 
+.checkout-details {
+  width: 100%;
+}
+
 .cart {
   width: 100%;
 }
@@ -28,4 +32,18 @@ hr {
   height: auto;
   width: 100px;
   object-fit: fill;
+}
+
+.checkout .btn {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.btn-class {
+  width: 100%;
+  padding-top: 24px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }

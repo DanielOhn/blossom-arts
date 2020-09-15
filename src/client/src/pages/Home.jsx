@@ -1,13 +1,9 @@
 import React from "react"
 import "../styles/Home.css"
 
-// import Cart from "../icons/cart"
-
 import Heart from "../icons/heart"
 import Puzzle from "../icons/puzzle"
 import Pencil from "../icons/pencil"
-
-import QASection from "../components/QASection"
 
 function Home() {
   return (

@@ -12,14 +12,12 @@ const Products = ({ match }) => {
   useEffect(() => {
     axios.get("/products").then((res) => {
       setProducts(res.data.data)
-      console.log(res.data.data)
     })
   }, [])
 
   const listProducts = Object.keys(products).map((i) => {
     let product = products[i]
     let name = product.name
-    // let slug = product.metadata.slug
 
     return (
       <div className="product-card" key={product.id}>

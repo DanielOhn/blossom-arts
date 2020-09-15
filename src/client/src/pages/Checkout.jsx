@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react"
 import "../styles/Checkout.css"
 
-import CheckoutForm from "../components/CheckoutForm"
-
-import { loadStripe } from "@stripe/stripe-js"
-import { Elements } from "@stripe/react-stripe-js"
-
 import ClearCart from "../icons/clearCart"
 import RemoveItem from "../icons/removeItem"
 import Plus from "../icons/plus"
 import Minus from "../icons/minus"
 
-const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_KEY)
-
 function Checkout() {
   const [cart, setCart] = useState(
     localStorage.getItem("cart") ? localStorage.getItem("cart") : null
   )
-  const [secret, setSecret] = useState()
   const [prices, setPrices] = useState()
   const [total, setTotal] = useState()
 
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch(`/create-payment-intent`, {
+    localStorage.setItem("cart", cart)
+
+    fetch(`/get-payment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +28,6 @@ function Checkout() {
         return res.json()
       })
       .then((data) => {
-        setSecret(data.clientSecret)
         setPrices(data.prices)
         setTotal(data.total)
       })
@@ -163,19 +155,13 @@ function Checkout() {
                 </tfoot>
               )}
             </table>
+            <div className="btn-class">
+              <button className="btn primary">Proceed to Payment</button>
+            </div>
           </>
         )}
         {!cart && <p>No items in cart, feel free to browse our products!</p>}
       </div>
-      {secret && (
-        <div className="payment">
-          <h1 className="primary">Payment</h1>
-          <hr className="primary" />
-          <Elements stripe={stripePromise}>
-            <CheckoutForm secret={secret} />
-          </Elements>
-        </div>
-      )}
     </div>
   )
 }

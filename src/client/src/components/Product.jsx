@@ -17,8 +17,6 @@ const Product = ({ match }) => {
 
   useEffect(() => {
     axios.get(`/products/${match.params.id}`).then((results) => {
-      console.log(results.data)
-
       setSkus(results.data)
       setProduct(results.data[0])
     })
