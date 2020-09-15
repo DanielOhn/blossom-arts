@@ -123,7 +123,12 @@ function CheckoutForm({ secret }) {
       )}
       <BillingDetailsFields />
       <CardElement options={cardStyle} onChange={handleChange} />
-      <button disabled={processing || disabled || success}>Order</button>
+      <button
+        className="btn primary heavy"
+        disabled={processing || disabled || success}
+      >
+        Order
+      </button>
     </form>
   )
 }

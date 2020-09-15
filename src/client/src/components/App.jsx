@@ -10,6 +10,7 @@ import Contact from "../pages/Contact"
 import Product from "../components/Product"
 import Products from "../pages/Products"
 import Checkout from "../pages/Checkout"
+import Payment from "../pages/Payment"
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               exact
               render={(props) => <Product {...props} />}
             />
+            <Route path="/payment" exact component={Payment} />
             <Route path="/404" exact render={() => <p>Page not found.</p>} />
           </Switch>
         </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import "../styles/Checkout.css"
 
+import { Link } from "react-router-dom"
+
 import ClearCart from "../icons/clearCart"
 import RemoveItem from "../icons/removeItem"
 import Plus from "../icons/plus"
@@ -156,7 +158,9 @@ function Checkout() {
               )}
             </table>
             <div className="btn-class">
-              <button className="btn primary">Proceed to Payment</button>
+              <Link to="/payment">
+                <button className="btn primary">Proceed to Payment</button>
+              </Link>
             </div>
           </>
         )}

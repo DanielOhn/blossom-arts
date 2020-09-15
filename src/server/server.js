@@ -47,24 +47,27 @@ app.post("/contact", (req, res) => {
     })
 })
 
-app.post("/get-payment-intent", async (req, res) => {
+app.post("/payment-intent", async (req, res) => {
   let items = req.body
 
-  console.log(items)
+  const getPrices = await getItems(items)
+  let total = getTotal(getPrices, items)
 
-  // const paymentIntent = await stripe.paymentIntents
-  //   .create({
-  //     amount: total,
-  //     currency: "usd",
-  //     receipt_email: "ohndaniel@gmail.com",
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
+  total.then(async (data) => {
+    const paymentIntent = await stripe.paymentIntents
+      .create({
+        amount: data,
+        currency: "usd",
+        receipt_email: "ohndaniel@gmail.com",
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
-  // res.send({
-  //   clientSecret: paymentIntent.client_secret,
-  // })
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    })
+  })
 })
 
 app.post("/get-payment", async (req, res) => {
