@@ -105,7 +105,7 @@ function Checkout() {
 
     let price = 0
 
-    if (prices) price = prices[i].unit_amount / 100
+    if (prices) price = prices[i].price / 100
 
     return (
       <tbody key={i}>

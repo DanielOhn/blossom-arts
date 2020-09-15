@@ -48,15 +48,14 @@ app.post("/contact", (req, res) => {
 })
 
 app.post("/create-payment-intent", async (req, res) => {
-  let prices = req.body
-
-  const getPrices = await getTotal(prices)
+  let items = req.body
+  const getPrices = await getTotal(items)
 
   let total = getPrices.reduce((accum, value) => {
-    const findQt = prices.find((val, index) => {
-      return val.priceID === value.id
+    const findQt = items.find((val, index) => {
+      return val.productID === value.id
     })
-    return accum + value.unit_amount * findQt.qt
+    return accum + value.price * findQt.qt
   }, 0)
 
   const paymentIntent = await stripe.paymentIntents
@@ -76,13 +75,13 @@ app.post("/create-payment-intent", async (req, res) => {
   })
 })
 
-async function getTotal(prices) {
-  const getPrices = Object.keys(prices)
+async function getTotal(items) {
+  const getSkus = Object.keys(items)
 
   return Promise.all(
-    getPrices.map((i) => {
-      let item = prices[i]
-      return stripe.prices.retrieve(item.priceID)
+    getSkus.map((i) => {
+      let item = items[i]
+      return stripe.skus.retrieve(item.productID)
     })
   ).then((data) => data)
 }

@@ -27,6 +27,7 @@ const Product = ({ match }) => {
   const addProduct = () => {
     let prod = {
       productID: product.id,
+      productImage: product.image,
       productName: product.attributes.name,
       price: product.price,
       qt: qt,
@@ -85,7 +86,7 @@ const Product = ({ match }) => {
           <h1 className="secondary">{product.attributes.name}</h1>
           <hr className="secondary" />
           <div className="product-details">
-            <img alt={product.name} src={product.image} />
+            <img alt={product.attributes.name} src={product.image} />
             <div className="details">
               <div className="details-header">
                 <button className="heavy btn" onClick={() => changeProduct(0)}>
