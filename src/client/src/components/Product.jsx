@@ -82,31 +82,35 @@ const Product = ({ match }) => {
     <div className="product">
       {product && (
         <>
-          <img alt={product.name} src={product.image} />
-          <div className="details">
-            <div className="details-header">
-              <h1 className="secondary">{product.attributes.name}</h1>
-              <hr />
-              <button className="light" onClick={() => changeProduct(0)}>
-                Purple
-              </button>
-              <button className="light" onClick={() => changeProduct(1)}>
-                White
-              </button>
-              <button className="light" onClick={() => changeProduct(2)}>
-                Blue
-              </button>
-            </div>
-            <div className="product-price">
-              <p className="light">${(product.price / 100).toFixed(2)}</p>
+          <h1 className="secondary">{product.attributes.name}</h1>
+          <hr className="secondary" />
+          <div className="product-details">
+            <img alt={product.name} src={product.image} />
+            <div className="details">
+              <div className="details-header">
+                <button className="heavy btn" onClick={() => changeProduct(0)}>
+                  Purple
+                </button>
+                <button className="heavy btn" onClick={() => changeProduct(1)}>
+                  White
+                </button>
+                <button className="heavy btn" onClick={() => changeProduct(2)}>
+                  Blue
+                </button>
+              </div>
+              <div className="product-price">
+                <p className="light normal value">
+                  ${(product.price / 100).toFixed(2)}
+                </p>
 
-              <Minus onClick={subQt} />
-              <p className="primary">Qt. {qt}</p>
-              <Plus onClick={addQt} />
+                <Minus onClick={subQt} />
+                <p className="primary normal">Qt. {qt}</p>
+                <Plus onClick={addQt} />
 
-              <button className="heavy add-cart" onClick={addProduct}>
-                Add to Cart
-              </button>
+                <button className="heavy btn" onClick={addProduct}>
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         </>

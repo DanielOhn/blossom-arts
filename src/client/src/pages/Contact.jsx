@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import "../styles/Contact.css"
 
+import QASection from "../components/QASection"
+
 function Contact() {
   // const [name, setName] = useState()
   // const [email, setEmail] = useState()
   // const [subject, setSubject] = useState()
   // const [content, setContent] = useState()
-  const [url] = useState("http://localhost:3001/")
+  // const [url] = useState("http://localhost:3001/")
 
   function sendEmail() {
     fetch(`/contact`, {
@@ -24,31 +26,52 @@ function Contact() {
   }
 
   return (
-    <div className="contact">
-      <h1 className="primary">Contact Us</h1>
-      <hr className="primary" />
+    <div className="contact-page">
+      <div className="faq">
+        <h1 className="primary">FAQ</h1>
+        <hr className="primary" />
 
-      <p className="primary">
-        We are constantly trying to improve our services and products for our
-        customers. Any feedback on where we can improve, comments, and
-        suggestions would be appreciated!
-      </p>
-      <form action="/contact" method="POST" className="contact-form">
-        <input className="name" placeholder="Your Name" type="text" />
-        <input className="email" placeholder="Your Email" type="text" />
-        <textarea
-          type="text"
-          className="text"
-          placeholder="We would love your feedback!"
-        ></textarea>
+        <div className="faq-section">
+          <QASection
+            question="How long does it take for the product to be delivered?"
+            answer="It usually takes around 2 week until you recieve your product if you live within the United States."
+          />
+          <QASection
+            question="Yes, no maybe? I don't know. Can you repeat the question?"
+            answer="You're not the boss of me now, and you're not so big!"
+          />
+          <QASection
+            question="Yes, no maybe? I don't know. Can you repeat the question?"
+            answer="You're not the boss of me now, and you're not so big!"
+          />
+        </div>
+      </div>
+      <div className="contact">
+        <h1 className="primary">Contact Us</h1>
+        <hr className="primary" />
 
-        <input
-          className="submit"
-          type="submit"
-          value="Submit"
-          onClick={() => sendEmail}
-        />
-      </form>
+        <p className="primary">
+          We are constantly trying to improve our services and products for our
+          customers. Any feedback on where we can improve, comments, and
+          suggestions would be appreciated!
+        </p>
+        <form action="/contact" method="POST" className="contact-form">
+          <input className="name" placeholder="Your Name" type="text" />
+          <input className="email" placeholder="Your Email" type="text" />
+          <textarea
+            type="text"
+            className="text"
+            placeholder="We would love your feedback!"
+          ></textarea>
+
+          <input
+            className="submit"
+            type="submit"
+            value="Submit"
+            onClick={() => sendEmail}
+          />
+        </form>
+      </div>
     </div>
   )
 }

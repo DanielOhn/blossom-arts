@@ -1,23 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
+
+import "../styles/QASection.css"
 
 const QASection = (props) => {
-  const [answer, setAnswer] = useState(false)
-
-  function showAnswer() {
-    setAnswer(!answer)
-  }
-
   return (
     <div className="section">
-      <div className="question">
-        <p>{props.question}</p>
-        <button onClick={showAnswer}>.</button>
-      </div>
-      {answer && (
-        <div className="answer">
-          <p>{props.answer}</p>
-        </div>
-      )}
+      <h3 className="heavy">{props.question}</h3>
+      <p className="normal light">{props.answer}</p>
     </div>
   )
 }

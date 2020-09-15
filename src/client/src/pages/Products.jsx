@@ -26,7 +26,7 @@ const Products = ({ match }) => {
         <div className="product-header">
           <img alt={name} src={product.images[0]} />
           <div className="product-detail">
-            <h2>
+            <h2 className="name">
               <Link to={`${match.url}/${product.id}`}>{name}</Link>
             </h2>
             <p>{product.description}</p>
@@ -36,7 +36,13 @@ const Products = ({ match }) => {
     )
   })
 
-  return <div>{products && listProducts}</div>
+  return (
+    <div className="products">
+      <h1 className="primary">Products</h1>
+      <hr className="primary" />
+      {products && listProducts}
+    </div>
+  )
 }
 
 export default Products

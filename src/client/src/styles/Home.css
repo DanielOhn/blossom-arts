@@ -21,7 +21,7 @@
 .title {
   position: relative;
   top: -380px;
-  left: 55%;
+  left: 48%;
 
   color: white;
   background: #222111;
@@ -29,22 +29,24 @@
 }
 
 .title h1 {
-  font-size: 32px;
+  text-align: center;
   padding: 8px;
+  margin-bottom: 4px;
 }
 
 .title p {
-  font-size: 24px;
   font-weight: 700;
   padding: 12px;
 }
 
 .small {
-  max-width: 200px;
+  font-weight: 400;
+  max-width: 300px;
 }
 
 .large {
   max-width: 440px;
+  font-size: 24px;
 }
 
 .icons {
@@ -70,46 +72,4 @@ p {
 .icon p {
   max-width: 200px;
   font-size: 18px;
-}
-
-.faq h1 {
-  font-size: 32px;
-  text-align: left;
-}
-
-.faq {
-  width: 85%;
-  margin: 0 auto;
-  height: 100%;
-}
-
-.faq-section {
-  height: 30vh;
-
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.section {
-  padding-bottom: 18px;
-}
-
-.question {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
-
-  padding: 4px;
-
-  background-color: #222;
-  color: white;
-}
-
-.answer {
-  text-align: left;
-  padding: 8px;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
 }

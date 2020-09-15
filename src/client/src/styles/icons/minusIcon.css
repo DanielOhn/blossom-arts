@@ -6,3 +6,7 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.minus-icon:hover {
+  fill: var(--primary);
+}
