@@ -27,13 +27,20 @@
   justify-content: space-evenly;
 }
 
+.product-details button {
+  margin-top: auto;
+}
+
+.product-details p {
+  margin-bottom: auto;
+  padding: 4px;
+}
+
 .details {
   text-align: left;
-
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-
   width: 280px;
 }
 
@@ -44,7 +51,6 @@
 }
 
 .details-header button {
-  height: 24px;
   width: 64px;
 }
 
@@ -56,7 +62,6 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  vertical-align: bottom;
 }
 
 .product-price .value {
@@ -87,16 +92,16 @@
   }
 
   .product img {
-    max-height: 400px;
+    max-height: 150px;
+    width: auto;
     object-fit: contain;
 
     box-shadow: none;
   }
 
-  .details {
-    margin: 0;
-    width: 400px;
-    height: 200px;
-    text-align: center;
+  .product-details {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
   }
 }
