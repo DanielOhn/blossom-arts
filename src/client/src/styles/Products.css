@@ -20,6 +20,8 @@
   flex-flow: column nowrap;
   justify-content: space-evenly;
   margin-bottom: 64px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
 }
 
 .product-header {
@@ -29,8 +31,6 @@
 }
 
 .product-card img {
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
   width: 320px;
   height: auto;
   object-fit: contain;
@@ -40,10 +40,8 @@
 
 .product-detail {
   background-color: var(--bg);
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
 
-  width: 60%;
+  width: 100%;
 }
 
 .name a {
